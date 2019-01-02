@@ -183,6 +183,54 @@ In Verknüpfungsansichten müssen die Spalten, wie in den Ansichten der flexible
 
 In der Datenbankkonfiguration der MobileOnline können XPages und andere Seiten mit dem Typ "Link" eingebunden werden, welche dann in der App im InAppBrowser geöffnet werden.
 
+# Bestehende Dokumente und Listen anpassen
+
+Mit der Skriptbibliothek 'app_customization' können neben neuen Dokumenten auch die bestehenden Standarddokumente und Listen angepasst werden.
+
+## Ein eigenes Feld im Lesemodus des Dokuments anzeigen
+
+Neue Felder für bestehende Dokumente müssen in den Doctype-Ansichten `vaJAPIDT+Dokumententyp (Company, CProfile...)` hinzugefügt werden, damit diese an die App über die REST-Services ausgliefert werden. Dazu muss in der Ansicht eine neue Spalte für den Feldwert eingefügt werden. Wenn das Feld auch in der Ansicht vorhanden ist, dann bietet es sich an, dass der gleiche Name für die Spalte gewählt wird. Das sorgt dafür, dass beim Öffnen eines Dokuments der Wert aus der Ansicht sofort anzeigbar ist.
+
+Damit das Dokument im Lesemodus angezeigt wird muss der 'DocumentStyle' erweitert werden. 
+Ein Beispiel für eine Anpassung in der Javascript-Bibliothek 'app_customization':  
+
+```javascript
+function cuGetDocumentStyle(object){
+  //add field below header
+  var newField = {
+      "component": "LabeledText",
+      "inputs": {
+          "label": CRMContext.getLC("LC01855","Phone"),
+          "value": "LC01753" //programmatischer Spaltenname
+      }
+  }
+
+  var fields = object["dsCompany"].fieldDefinitions;
+  for (i = 0; i < fields.length; i++) {
+    var field = fields[i];
+    if(field.component == "HeaderAddress"){
+      fields = fields.splice(i+1, 0, newField);
+      break;
+    }
+  }
+  object["dsCompany"].fieldDefinitions = fields;
+  return object;
+}
+```
+## Listen und Verknüpfungen anpassen
+
+Bestehende Liststyles können auch über die Bibliothek 'app_customization' verändert werden. Neue Felder müssen in den Flexviews bzw. Displayviews als Spalte aufgenommen werden und die Spalte muss in der Formel `isMobileView:="true"` besitzen.
+
+In der Javascript-Bibliothek 'app_customization' können die Standard-Liststyles angepasst oder komplett ersetzt werden:
+ 
+```javascript
+function cuGetListStyle(object){
+  // change column for title of company liststyle
+  object.lsCompany.title = "mobileAppViewSubject";
+  return object;
+}
+```
+
 # REST-Services
 
 Die Daten aus der Konfiguration, den Ansichten und Dokumenten werden mit REST-Services als JSON an die App übertragen.
