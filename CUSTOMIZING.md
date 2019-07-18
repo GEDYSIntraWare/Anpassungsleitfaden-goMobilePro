@@ -183,6 +183,15 @@ In Verknüpfungsansichten müssen die Spalten, wie in den Ansichten der flexible
 
 In der Datenbankkonfiguration der MobileOnline können XPages und andere Seiten mit dem Typ "Link" eingebunden werden, welche dann in der App im InAppBrowser geöffnet werden.
 
+Diese XPage wird im Vollbildmodus geöffnet. Damit der Anwender von der XPage wieder in die App zurück wechseln kann, muss auf jeder XPage ein Button sein der folgendes Javascript ausführt:
+
+```javascript
+sessionStorage.setItem('closeInAppBrowser', 'true');
+```
+Dadurch erfährt die App, dass der InAppBrowser geschlossen werden soll.
+
+Ein Beispiel für ein solchen Button in der Navigationsleiste findet sich in XPages mit dem Prefix *"app_"*.
+
 # Bestehende Dokumente und Listen anpassen
 
 Mit der Skriptbibliothek 'app_customization' können neben neuen Dokumenten auch die bestehenden Standarddokumente und Listen angepasst werden.
