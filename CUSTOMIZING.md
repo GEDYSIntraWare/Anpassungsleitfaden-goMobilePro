@@ -183,7 +183,7 @@ In Verknüpfungsansichten müssen die Spalten, wie in den Ansichten der flexible
 
 In der Datenbankkonfiguration der MobileOnline können XPages und andere Seiten mit dem Typ "Link" eingebunden werden, welche dann in der App im InAppBrowser geöffnet werden.
 
-Diese XPage wird im Vollbildmodus geöffnet. Damit der Anwender von der XPage wieder in die App zurück wechseln kann, muss auf jeder XPage ein Button sein der folgendes Javascript ausführt:
+Diese XPage wird im Vollbildmodus geöffnet. Damit der Anwender von der XPage wieder in die App zurück wechseln kann, muss auf jeder XPage ein Button sein der folgendes JavaScript ausführt:
 
 ```javascript
 sessionStorage.setItem('closeInAppBrowser', 'true');
@@ -198,10 +198,10 @@ Mit der Skriptbibliothek 'app_customization' können neben neuen Dokumenten auch
 
 ## Ein eigenes Feld im Lesemodus des Dokuments anzeigen
 
-Neue Felder für bestehende Dokumente müssen in den Doctype-Ansichten `vaJAPIDT+Dokumententyp (Company, CProfile...)` hinzugefügt werden, damit diese an die App über die REST-Services ausgliefert werden. Dazu muss in der Ansicht eine neue Spalte für den Feldwert eingefügt werden. Wenn das Feld auch in der Ansicht vorhanden ist, dann bietet es sich an, dass der gleiche Name für die Spalte gewählt wird. Das sorgt dafür, dass beim Öffnen eines Dokuments der Wert aus der Ansicht sofort anzeigbar ist.
+Neue Felder für bestehende Dokumente müssen in den Doctype-Ansichten `vaJAPIDT+Dokumententyp (Company, CProfile...)` hinzugefügt werden, damit diese an die App über die REST-Services ausgeliefert werden. Dazu muss in der Ansicht eine neue Spalte für den Feldwert eingefügt werden. Wenn das Feld auch in der Ansicht vorhanden ist, dann bietet es sich an, dass der gleiche Name für die Spalte gewählt wird. Das sorgt dafür, dass beim Öffnen eines Dokuments der Wert aus der Ansicht sofort anzeigbar ist.
 
 Damit das Dokument im Lesemodus angezeigt wird muss der 'DocumentStyle' erweitert werden. 
-Ein Beispiel für eine Anpassung in der Javascript-Bibliothek 'app_customization':  
+Ein Beispiel für eine Anpassung in der JavaScript-Bibliothek 'app_customization':  
 
 ```javascript
 function cuGetDocumentStyle(object){
@@ -230,7 +230,7 @@ function cuGetDocumentStyle(object){
 
 Bestehende Liststyles können auch über die Bibliothek 'app_customization' verändert werden. Neue Felder müssen in den Flexviews bzw. Displayviews als Spalte aufgenommen werden und die Spalte muss in der Formel `isMobileView:="true"` besitzen.
 
-In der Javascript-Bibliothek 'app_customization' können die Standard-Liststyles angepasst oder komplett ersetzt werden:
+In der JavaScript-Bibliothek 'app_customization' können die Standard-Liststyles angepasst oder komplett ersetzt werden:
  
 ```javascript
 function cuGetListStyle(object){
@@ -255,5 +255,209 @@ URL: `http://server.tld/pfad/Mobileint.nsf/rest.xsp/config?type=all`
 Die Offline Synchronisation ist ähnlich wie der Onlinemodus erweiterbar. Für die Synchronisation von Firmen und Kontakten gibt es in der Contacts die zwei Ansichten "vaJAPIAppCompanies" und "vaJAPIApppContacts", die vorgeben, welche Dokumente und Feldwerte für die Synchronisation verfügbar sind. Diese Ansichten können mit neuen Spalten erweitert werden, um weitere Felder zu synchronisieren. Der programmatische Name der Spalten muss der Feldname und der Spaltentitel die LC-Nummer für die Bezeichnung sein.
 
 Die Anzeige von Listen und Dokumenten nutzt auch 'listStlyes' und 'documentStyles'. Für die synchronisierten Firmen und Kontakte gibt es in der JavaScript-Bibliothek 'app_getConfig' jeweils einen 'listStyle' und 'documentStyle' mit dem Prefix "OFFLINE". Diese können für Anpassungen über die JavaScript-Bibliothek 'app_customization' verändert werden.
+
+# Dokumente in goMobile Pro bearbeiten
+
+Seit Version 4.2.0 bietet goMobile Pro einen integrierten Bearbeitenmodus für die Online-Bearbeitung. In vorherigen Versionen und in machen Dokumententypen wird noch der Bearbeitenmodus auf Basis der XPage aus goMobile verwendet.
+
+Der neue InAppEditmode benutzt analog zum Lesemodus einen sogenannten 'editStyle'. Es gibt zusätzlich die Möglichkeit einen 'editSubStyle' mit Hilfe des Components 'EditSubform' zu verwenden.
+
+## Neue Dokumententyp im InAppEditmode bereitstellen
+
+Um einen Dokumententyp im neuen Bearbeitenmodus zu erstellen, muss der 'editStyle' im Parameter 'creatStyle' der Erstellenaktion hinterlegt werden. Beispiel: `"createStyle": "esCProfile"`.
+
+## Bearbeiten eines Dokumententyps auf InAppEditmode umstellen.
+
+Damit ein Dokument im InAppEditmode bearbeitet werden kann, muss einerseits die Bearbeitenaktion im Aktionsmenü von 'editDocument' auf 'editDocumentNew' geändert werden. Andererseits benötigt diese Bearbeitenaktion die Angabe des 'editStyles' in der 'mobileConfig' Spalte der Ansichten, über die das Dokument geöffnet werden kann. In der Regel ist das eine Listenansicht (JAPI..List) aus der Flexview und auf jeden Fall die Doctype-Ansicht (JAPIMobileDT...). Der 'editStyle' wird mit '<editStyle>' in die 'mobileConfig' Spalte eingefügt:
+
+```
+documentStyle:= "dsTask";
+editStyle:="esTask";
+actionMenu := "asTask";
+createMenu := "csTask";
+
+"<documentStyle>" + documentStyle + "</documentStyle><actionMenu>" + actionMenu + "</actionMenu><createMenu>" + createMenu + "</createMenu><editStyle>" + editStyle + "</editStyle>"
+```
+
+## Einen bestehenden editStyle ändern
+
+Die 'editStyles' aus dem Standard könne wie 'documentStyles' über die JavaScript-Bibliothek 'app_customization' angepasst werden.
+
+> Wichtiger Hinweis: Feldnamen in editStyles müssen immer **klein** geschrieben werden!
+
+### Beispiel: Einbau eines Feldes in die Firma per app_customization
+
+```javascript
+function cuGetEditStyle(object){
+	var newField = {
+    "component": "EditText",
+    "inputs": {
+    "fieldName": "mynewfield",
+    "label": "Bereich"
+    }
+  };
+	
+	var fields = object["esCompany"].fieldDefintions;
+	
+	for (i = 0; i < fields.length; i++) {
+		var field = fields[i];
+    if(field.component == "EditSubform" && field.inputs.id == "companyGeneral"){
+      var subFields = field.inputs.fieldDefinitions;
+      subFields.push(newField);
+      break;
+    }
+	}
+	
+	return object;
+}
+```
+
+### Beispiel: Textfeld auf Auswahl aus Schlüsselwort umstellen
+
+```javascript
+function cuGetKeywords(object){
+	var appConfig = new com.gi.crm.mobile.tools.AppConfiguration;
+	object.myBereich = fromJson(appConfig.getKeywordConfig("900", "Department", "Addresses"));
+	
+	return object;
+}
+
+function cuGetEditStyle(object){
+	var newField = {
+  "component": "EditSelect",
+  "inputs": {
+      "fieldName": "mynewfield",
+      "label": "Bereich",
+      "mode": "select",
+      "itemSourceType": "keyword",
+      "itemSourceName": "myBereich"
+    }  
+  };
+	
+	var fields = object["esCompany"].fieldDefintions;
+	
+	for (i = 0; i < fields.length; i++) {
+		var field = fields[i];
+    if(field.component == "EditSubform" && field.inputs.id == "companyGeneral"){
+      var subFields = field.inputs.fieldDefinitions;
+      subFields.push(newField);
+      break;
+    }
+	}
+	
+  return object;
+}
+```
+
+Die Schlüsselworteinstellung Offen/Geschlossen greift in diesem Fall. Sie kann aber mit dem Parameter `"allowValuesNotInList": false` übersteuert werden.
+
+## Bedingungen zum Ausblenden von Feldern
+
+Bei jedem Component können über 'rendered' Bedingungen festgelegt werden, wann der Component angezeigt werden soll.
+
+Es ist möglich UND und ODER Bedingungen, die auf Feldwerte, die Konfiguration und den "Data-Bereich" zugreifen, zu erstellen und zu verknüpfen.
+
+### Komplexeres Beispiel mit verschiedenen Typen
+
+```json
+{
+    "orConditions": [
+      {
+        "type": "doc",
+        "operator": "equals",
+        "value": "123",
+        "field": "company"
+      },
+      {
+        "type": "data",
+        "operator": "notequals",
+        "value": "+49",
+        "field": "phone"
+      }
+    ],
+    "andConditions": [
+      {
+        "type": "dbconfig",
+        "operator": "notempty",
+        "field": "test"
+      },
+      {
+        "type": "globalconfig",
+        "operator": "equals",
+        "value": "test",
+        "field": "fdskypename"
+      }
+    ],
+    "operator": "and"
+}
+```
+Es gibt auch einige möglichen Vereinfachungen.
+
+### Beispiel: Ein Feld in esCompany nur in Einheiten anzeigen
+```javascript
+"rendered": {
+  "field": "fdisbranch",
+  "value": "1"
+}
+```
+
+### Felder in direkter Abhängigkeit verstecken
+
+```javascript
+function cuGetEditStyle(object){
+	var newField = {
+		    "component": "EditSelect",
+		    "inputs": {
+          "fieldName": "mynewfield",
+          "label": "Bereich",
+          "mode": "select",
+          "itemSourceType": "keyword",
+          "itemSourceName": "myBereich"
+			 }
+        };
+	
+	var newField2 = {
+		    "component": "EditText",
+		    "inputs": {
+				"fieldName": "mynewfield2",
+				"label": "Bonus",
+				"rendered": {
+				    "field": "mynewfield",
+					  "value": "Vertrieb"
+			    }
+		    }
+        };
+	
+	var fields = object["esCompany"].fieldDefintions;
+	
+	for (i = 0; i < fields.length; i++) {
+		var field = fields[i];
+	    if(field.component == "EditSubform" && field.inputs.id == "companyGeneral"){
+	    	var subFields = field.inputs.fieldDefinitions;
+	    	subFields.push(newField);
+	    	subFields.push(newField2);
+	    	break;
+	    }
+	}
+	
+	return object;
+```
+## Refresh
+
+Mit dem Parameter `"refreshOnChange": true` kann man dafür sorgen, dass das Dokument an den Server gesendet wird. Dort durchläuft es die Refresh-Methode, die im nächsten Abschnitt beschrieben ist. Danach wird das Dokument neu an goMobile Pro ausgeliefert und alle Components werden neu aufgebaut. Man kann auf diese Weise beispielsweise Felder befüllen, Berechnungen durchführen und alles was im Java-Framework möglich ist.
+
+Um die beste Benutzererfahrung für goMobile Pro zu bieten, sollte ein Refresh nur eingesetzt werden, wenn es unbedingt nötig ist. Vieles, wie zum Beispiel das Ausblenden von Feldern, kann auch ohne Refresh erreicht werden. Der sparsamen Einsatz des Refresh Parameters führt dazu, dass sich die App subjektiv deutlich performanter anfühlt.
+
+## Dokumente im Java-Backend aufbereiten
+
+Für den neuen InAppEditmode gibt es einige Erweiterungen im Java-Framework, die es erlauben Änderungen an den Dokumenten im Backend zu machen, wenn diese per goMobile Pro bearbeitet werden.
+
+Für Lesemodus gab es bereits 'addFieldsToRestServiceResponse'
+Jetzt gibt es neu:
+- initEditModeREST
+- refreshEditModeREST
+- prepareSaveEditModeREST
+- addValuesToDataEditModeREST - Hilfsmethode 'addTempFieldToRESTDoc'
+- getDocumentStyleNameEditModeRest
 
 # Komponenten
