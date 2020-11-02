@@ -357,6 +357,8 @@ Bei jedem Component können über 'rendered' Bedingungen festgelegt werden, wann
 
 Es ist möglich UND und ODER Bedingungen, die auf Feldwerte, die Konfiguration und den "Data-Bereich" zugreifen, zu erstellen und zu verknüpfen.
 
+Rendered kann auch auf CRM- und ACL-Rollen prüfen mit `type` "role" und "aclrole". "aclrole" prüft auf die ACL Rollen der MobileOnline Datenbank und ist immer ein Array. Deswegen muss hier der Operator `contains` genutzt werden.
+
 ### Komplexeres Beispiel mit verschiedenen Typen
 
 ```json
