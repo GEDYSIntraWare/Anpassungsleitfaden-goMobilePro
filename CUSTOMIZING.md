@@ -458,7 +458,19 @@ Ein Beispiel für ein solchen Button in der Navigationsleiste findet sich in XPa
 
 Seit Version 4.2.0 bietet goMobile Pro einen integrierten Bearbeitenmodus für die Online-Bearbeitung. In vorherigen Versionen und in machen Dokumententypen wird noch der Bearbeitenmodus auf Basis der XPage aus goMobile verwendet.
 
-Der neue InAppEditmode benutzt analog zum Lesemodus einen sogenannten 'editStyle'. Es gibt zusätzlich die Möglichkeit einen 'editSubStyle' mit Hilfe des Components 'EditSubform' zu verwenden.
+Der neue InAppEditmode benutzt analog zum Lesemodus einen sogenannten 'editStyle'. Es gibt zusätzlich die Möglichkeit einen 'editSubStyle' mit Hilfe des Components 'EditSubform' zu verwenden. **Dabei ist zu beachten, dass innerhalb der `fieldDefinitions` eines 'editSubStyle's kein weiterer 'EditSubform' Component verwendet werden kann.**
+
+'EditSubform' unterstützt die Inputs `field` oder `name` zum Einbinden eines 'editSubStyle's.
+```json
+{
+	"component": "EditSubform",
+	"inputs": {
+		"id": "examplesubform",
+		"field": "fdsubformfield",
+		"name": "examplesubsstyle"
+	}
+}
+```
 
 ## Neue Dokumententyp im InAppEditmode bereitstellen
 
