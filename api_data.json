@@ -636,6 +636,82 @@
     "url": "/EditAttachment",
     "title": "EditAttachment",
     "name": "EditAttachment",
+    "version": "4.5.1",
+    "group": "EditField",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "initKey",
+            "description": "<p>key to init data (for example: used for share)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "quality",
+            "defaultValue": "1",
+            "description": "<p>Values lower 1 compress images with the types image/jpeg or image/webp. Suggested Value 0.6.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "label",
+            "description": "<p>Fieldname of label or parameter as fallback</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "fieldName",
+            "description": "<p>Name of field to edit</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "required",
+            "defaultValue": "false",
+            "description": "<p>Use clientside validation if field is empty</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "refreshOnChange",
+            "defaultValue": "false",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "fixedLabel",
+            "defaultValue": "true",
+            "description": "<p>Show label fixed instead of floating</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "rendered",
+            "description": "<p>&quot;Rendered&quot; object to hide field if conditions do not apply</p>"
+          }
+        ]
+      }
+    },
+    "filename": "src/app/components/edit-fields/edit-attachment/edit-attachment.component.ts",
+    "groupTitle": "EditField"
+  },
+  {
+    "type": "get",
+    "url": "/EditAttachment",
+    "title": "EditAttachment",
+    "name": "EditAttachment",
     "version": "4.2.0",
     "group": "EditField",
     "parameter": {
@@ -696,7 +772,7 @@
         ]
       }
     },
-    "filename": "src/app/components/edit-fields/edit-attachment/edit-attachment.component.ts",
+    "filename": "src/apidoc.ts",
     "groupTitle": "EditField"
   },
   {
@@ -1029,6 +1105,13 @@
             "optional": false,
             "field": "label",
             "description": "<p>Fieldname of label or parameter as fallback</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "rendered",
+            "description": "<p>&quot;Rendered&quot; object to hide field if conditions do not apply</p>"
           }
         ]
       }
@@ -1165,6 +1248,113 @@
       ]
     },
     "filename": "src/app/components/edit-fields/edit-picklist/edit-filingstructure-picklist.component.ts",
+    "groupTitle": "EditField"
+  },
+  {
+    "type": "get",
+    "url": "/EditList",
+    "title": "EditList",
+    "name": "EditList",
+    "version": "4.5.1",
+    "group": "EditField",
+    "description": "<p>Allows the selection of values from a keyword for example</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "keyword",
+            "description": "<p>Name of keyword to use for selection</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "data",
+            "description": "<p>Name of key in the data object for the selection. Value should look like [{alias: string, label: string}]</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "sort",
+            "defaultValue": "true",
+            "description": "<p>Enable sorting alphabetically by value</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "allowValuesNotInList",
+            "defaultValue": "false",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "multiValue",
+            "defaultValue": "false",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "defaultValueNew",
+            "description": "<p>Default value for new documents. Use &quot;#keyword#&quot;  to use the default of the keyword.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "label",
+            "description": "<p>Fieldname of label or parameter as fallback</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "fieldName",
+            "description": "<p>Name of field to edit</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "required",
+            "defaultValue": "false",
+            "description": "<p>Use clientside validation if field is empty</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "refreshOnChange",
+            "defaultValue": "false",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "fixedLabel",
+            "defaultValue": "true",
+            "description": "<p>Show label fixed instead of floating</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "rendered",
+            "description": "<p>&quot;Rendered&quot; object to hide field if conditions do not apply</p>"
+          }
+        ]
+      }
+    },
+    "filename": "src/app/components/edit-fields/edit-list/edit-list.component.ts",
     "groupTitle": "EditField"
   },
   {
@@ -1317,7 +1507,7 @@
         }
       ]
     },
-    "filename": "src/app/components/edit-fields/edit-list/edit-list.component.ts",
+    "filename": "src/apidoc.ts",
     "groupTitle": "EditField"
   },
   {
@@ -2434,6 +2624,20 @@
             "field": "restoreExpandState",
             "defaultValue": "true",
             "description": "<p>Use stored expand state</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "field",
+            "description": "<p>Field to get editSubStyle name (case sensitive)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>Name of editSubStyle</p>"
           }
         ]
       }
@@ -2867,6 +3071,120 @@
     "title": "HeaderAddress",
     "name": "HeaderAddress",
     "group": "Field",
+    "version": "4.5.1",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number/String",
+            "optional": false,
+            "field": "icon",
+            "description": "<p>Name or number</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>Fieldname of title</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "subtitle",
+            "description": "<p>Fieldname of subtitle</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "pretitle",
+            "description": "<p>Fieldname of text above title</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "logoUrl",
+            "description": "<p>Fieldname of logo url or parameter as fallback</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "salutation",
+            "description": "<p>Fieldname of salutation</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object[]",
+            "optional": false,
+            "field": "callFields",
+            "description": "<p>List with objects: {label: string, fieldName: string} for call button</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object[]",
+            "optional": false,
+            "field": "mailFields",
+            "description": "<p>List with objects: {label: string, fieldName: string} for mail button</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object[]",
+            "optional": false,
+            "field": "mapsFields",
+            "description": "<p>List with objects: {label: string, fieldName: string} for maps button</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "otherEMail",
+            "description": "<p>Name of column with EMail addresss from Communications field</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "otherPhone",
+            "description": "<p>Name of column with phone numbers from Communications field</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "callCreateAction",
+            "description": "<p>Name of create action for call button, &quot;DISABLED&quot; if no create should be opened</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "mailCreateAction",
+            "description": "<p>Name of create action for mail button</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String[]",
+            "optional": false,
+            "field": "lines",
+            "description": "<p>Array of fieldnames for additional lines in header</p>"
+          }
+        ]
+      }
+    },
+    "filename": "src/app/components/fields/header-address/header-address.component.ts",
+    "groupTitle": "Field"
+  },
+  {
+    "type": "get",
+    "url": "/HeaderAddress",
+    "title": "HeaderAddress",
+    "name": "HeaderAddress",
+    "group": "Field",
     "version": "4.2.0",
     "parameter": {
       "fields": {
@@ -2965,7 +3283,7 @@
         ]
       }
     },
-    "filename": "src/app/components/fields/header-address/header-address.component.ts",
+    "filename": "src/apidoc.ts",
     "groupTitle": "Field"
   },
   {
@@ -3023,7 +3341,77 @@
         ]
       }
     },
-    "filename": "src/app/components/fields/header-address/header-address.component.ts",
+    "filename": "src/apidoc.ts",
+    "groupTitle": "Field"
+  },
+  {
+    "type": "get",
+    "url": "/HeaderService",
+    "title": "HeaderService",
+    "name": "HeaderService",
+    "group": "Field",
+    "version": "4.5.1",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number/String",
+            "optional": false,
+            "field": "icon",
+            "description": "<p>Name or number</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>Fieldname of title</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "subtitle",
+            "description": "<p>Fieldname of subtitle</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "link",
+            "description": "<p>System link</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "create",
+            "description": "<p>Create document link</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String[]",
+            "optional": false,
+            "field": "lines",
+            "description": "<p>Array of fieldnames for additional lines in header</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "link Example:",
+          "content": " {\n   \"link\":\n           {\n\t\t\t\t\t    \"text\": \"LC01753\",\n\t\t\t\t\t    \"url\": \"LC01753\",\n\t\t\t\t\t    \"protocol\": \"tel:\"\n\t\t\t\t     }\n  }",
+          "type": "json"
+        },
+        {
+          "title": "create Example:",
+          "content": " {\n   \"create\":\n           {\n\t\t\t\t\t    \"text\": \"EMailAddress\",\n\t\t\t\t\t    \"createAction\": \"EMail\"\n\t\t\t\t     }\n  }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/app/components/fields/header-service/header-service.component.ts",
     "groupTitle": "Field"
   },
   {
@@ -3086,7 +3474,58 @@
         }
       ]
     },
-    "filename": "src/app/components/fields/header-service/header-service.component.ts",
+    "filename": "src/apidoc.ts",
+    "groupTitle": "Field"
+  },
+  {
+    "type": "get",
+    "url": "/HeaderStandard",
+    "title": "HeaderStandard",
+    "name": "HeaderStandard",
+    "group": "Field",
+    "version": "4.5.1",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number/String",
+            "optional": false,
+            "field": "icon",
+            "description": "<p>Name or number</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>Fieldname of title</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "subtitle",
+            "description": "<p>Fieldname of subtitle</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "logoUrl",
+            "description": "<p>Fieldname of logo url or parameter as fallback</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String[]",
+            "optional": false,
+            "field": "lines",
+            "description": "<p>Array of fieldnames for additional lines in header</p>"
+          }
+        ]
+      }
+    },
+    "filename": "src/app/components/fields/header-standard/header-standard.component.ts",
     "groupTitle": "Field"
   },
   {
@@ -3130,7 +3569,7 @@
         ]
       }
     },
-    "filename": "src/app/components/fields/header-standard/header-standard.component.ts",
+    "filename": "src/apidoc.ts",
     "groupTitle": "Field"
   },
   {
