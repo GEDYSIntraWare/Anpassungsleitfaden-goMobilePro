@@ -18,7 +18,7 @@ In der JavaScript-Bibliothek 'app_customization' hat man Zugriff auf alle Konfig
 
 In diesem Beispiel werden Definitionen für eine externe Datenbank "CD Verwaltung" erstellt und Ansichten für die Integration in goMobile Pro vorbereitet.
 
-## Vorrausetzung
+## Voraussetzung
 
 Die Datenbank ist bereits an goMobile „angebunden“, d.h. es gibt eine Konfiguration für eine flexible Liste und einen Startmenüeintrag.
 
