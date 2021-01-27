@@ -272,9 +272,31 @@ Für den neuen InAppEditmode gibt es einige Erweiterungen im Java-Framework, die
 
 Für Lesemodus gab es bereits 'addFieldsToRestServiceResponse' und für den Lesemodus sind diese Methoden interessant:
 
+**initEditModeREST**
 
+Diese Methode wird aufgerufen, wenn ein Dokument in den Editmode geschaltet werden und kann beispielsweise dafür genutzt werden um Felder für den EditMode zu erzeugen.
 
-In Dokumentenklassen bzw. Ableitungen für Anpassungen können diese Methoden sehr nützlich sein um das Verhalten des Editmodes zu beinflussen.
+**refreshEditModeREST**
+
+Wenn bei Components "refreshOnChange" aktiviert ist, wird diese Methode aufgerufen und das Dokument kann verändert werden bevor es zurück an goMobile Pro übermittelt wird.
+
+**prepareSaveEditModeREST**
+
+Diese Methoden wird aufgerufen, wenn das Dokument in goMobile Pro gespeichert wird. Mit dem Übergabeparameter "saveEventId" können Aktionen wie das Senden von E-Mails eingeleitet werden.
+
+**addValuesToDataEditModeREST**
+
+An diversen Stellen kann man mit dem Pipe |GetData Werte aus dem Data Objekt abrufen. Mit dieser Methode kann das Data Objekt mit temporären Werten befüllt werden. Alternativ zu temporären Feldern.
+
+**'addTempFieldToRESTDoc'**
+
+Mit dieser Methode könne temporäre Felder im Dokument für den EditMode hinterlegt werden um diese beispielsweise für Components zu verwenden oder um Werte zwischen Refreshes zu speichern. Diese Felder werden vor dem Speichern wieder entfernt.
+
+**getDocumentStyleNameEditModeRest**
+
+Mit dieser Methode kann der EditStyle programmatisch gesetzt werden.
+
+**In Dokumentenklassen bzw. Ableitungen für Anpassungen können diese Methoden sehr nützlich sein um das Verhalten des Editmodes zu beeinflussen.**
 
 # Eine eigene Datenbank in goMobile Pro verwenden
 
