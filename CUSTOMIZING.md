@@ -12,7 +12,7 @@ In der goMobile Datenbank gibt es in den Ansichten die Aktion "Aktualisieren der
 
 ## Config Rest Service
 
-Es kann nützlich sein, den Config-REST-Service zum Abrufen der angepassten Konfiguration und Anzeigen von Fehlermeldungen anzusprechen. **Bei Fehlern wie u.a. "Sie verwenden eine veraltete Version von goMobile Pro" und Anpassungen die nicht korrekt sind sollte man immer zuerst die Antwort des Config REST-Services prüfen**. Der Firefox Desktop Browser bietet eine praktische JSON Ansicht an.
+Diese Konfigurationen werden über den sogenannten Config Rest Service ausgeliefert. Es kann nützlich sein, den Config-REST-Service zum Abrufen der angepassten Konfiguration und Anzeigen von Fehlermeldungen anzusprechen. **Bei Fehlern wie u.a. "Sie verwenden eine veraltete Version von goMobile Pro" und Anpassungen die nicht korrekt sind sollte man immer zuerst die Antwort des Config REST-Services prüfen**. Der Firefox Desktop Browser bietet eine praktische JSON Ansicht an. Vor dem Aufrufen sollte man sicherstellen, dass man angemeldet ist.
 
 URL: `http://server.tld/pfad/Mobileint.nsf/rest.xsp/config?type=all`
 
@@ -23,11 +23,37 @@ In der JavaScript-Bibliothek 'app_customization' hat man Zugriff auf alle Konfig
 
 # Bestehende Dokumente und Listen anpassen
 
-Mit der Skriptbibliothek 'app_customization' können neben neuen Dokumenten auch die bestehenden Standarddokumente und Listen angepasst werden.
+Mit der Skriptbibliothek 'app_customization' können die bestehenden Standarddokumente und Listen angepasst werden.
 
 ## Ein eigenes Feld im Lesemodus des Dokuments anzeigen
 
-Neue Felder für bestehende Dokumente müssen in den Doctype-Ansichten `vaJAPIDT+Dokumententyp (Company, CProfile...)` hinzugefügt werden, damit diese an die App über die REST-Services ausgeliefert werden. Dazu muss in der Ansicht eine neue Spalte für den Feldwert eingefügt werden. Wenn das Feld auch in der Ansicht vorhanden ist, dann bietet es sich an, dass der gleiche Name für die Spalte gewählt wird. Das sorgt dafür, dass beim Öffnen eines Dokuments der Wert aus der Ansicht sofort anzeigbar ist.
+Neue Felder für bestehende Dokumente müssen in den Doctype-Ansichten `vaJAPIDT+Dokumententyp (Company, CProfile...)` hinzugefügt werden, damit diese an die App über die REST-Services ausgeliefert werden. Dazu muss in der Ansicht eine neue Spalte für den Feldwert eingefügt werden. Wenn das Feld auch in der Ansicht vorhanden ist, dann bietet es sich an, dass der gleiche Name für die Spalte gewählt wird. Das sorgt dafür, dass beim Öffnen eines Dokuments der Wert aus der Ansicht sofort angezeigt wird und das nachladen der Felder weniger auffällt.
+
+Alternativ kann man Felder für den Lesemodus auch in der Dokumentenklasse im Java mit der Methode `addFieldsToRestServiceResponse` eingefügen:
+
+```java
+@Override
+	public void addFieldsToRestServiceResponse(JsonObject response)
+	{
+		//Single fields
+		String[] oTextFieldNames = {"DistributionList", "COUser1", "COUser11", "COUser12", "COUser13"};
+
+		//Loop over all single text fields
+		for (int k = 0; k < oTextFieldNames.length; k++) {
+			String fieldName = oTextFieldNames[k];
+			String fieldValue = Tools.implode(this.getItemValue(fieldName), ", ") ;
+			if(fieldValue == null || fieldValue.equals("null")) {
+				fieldValue = "";
+			}
+
+			response.put(fieldName, fieldValue);
+		};
+
+
+		super.addFieldsToRestServiceResponse(response);
+
+	}
+```
 
 Damit das Dokument im Lesemodus angezeigt wird muss der 'DocumentStyle' erweitert werden. 
 Ein Beispiel für eine Anpassung in der JavaScript-Bibliothek 'app_customization':  
@@ -244,13 +270,11 @@ Um die beste Benutzererfahrung für goMobile Pro zu bieten, sollte ein Refresh n
 
 Für den neuen InAppEditmode gibt es einige Erweiterungen im Java-Framework, die es erlauben Änderungen an den Dokumenten im Backend zu machen, wenn diese per goMobile Pro bearbeitet werden.
 
-Für Lesemodus gab es bereits 'addFieldsToRestServiceResponse'
-Jetzt gibt es neu:
-- initEditModeREST
-- refreshEditModeREST
-- prepareSaveEditModeREST
-- addValuesToDataEditModeREST - Hilfsmethode 'addTempFieldToRESTDoc'
-- getDocumentStyleNameEditModeRest
+Für Lesemodus gab es bereits 'addFieldsToRestServiceResponse' und für den Lesemodus sind diese Methoden interessant:
+
+
+
+In Dokumentenklassen bzw. Ableitungen für Anpassungen können diese Methoden sehr nützlich sein um das Verhalten des Editmodes zu beinflussen.
 
 # Eine eigene Datenbank in goMobile Pro verwenden
 
