@@ -543,16 +543,11 @@ function cuGetKeywords(object){
 	for (i=0; i < cuProductLineAliases.length; i++){
 		cuProducts = fromJson(appConfig.getKeywordConfig("901", ("fdCUProducts." + cuProductLineAliases[i]), "Customer"));
 		for(n=0; n < cuProducts.Office.values.length; n++){
-			//print(cuProducts.Office.values[n].alias);
 			if(cuProducts.Office.values[n].alias.indexOf("#") != -1){
 				cuParamArray = cuProducts.Office.values[n].alias.split("#");
 				cuProducts.Office.values[n].ordernumber = cuParamArray[0];				
 				cuProducts.Office.values[n].price = cuParamArray[1];
-				//print("Alias: " + cuProducts.Office.values[n].alias)
 			}
-			//else {
-			//	cuProducts.Office.values[n].alias = cuProducts.Office.values[n].label
-			//};
 			cuProducts.Office.values[n].alias = cuProducts.Office.values[n].label
 		};
 		object["CUProducts_" + cuProductLineAliases[i]] = cuProducts;
@@ -566,20 +561,20 @@ function cuGetKeywords(object){
 
 Beispiel aus cuGetDocumentStyle
 ```javascript
-		//Funktion Kontakt
-		{
-			"component": "EditSelect",
-			"inputs": {
-				"fieldName": "fdcucontactfunction",
-				"label": "Funktion",
-				"mode": "select",
-				"allowValuesNotInList": false,
-				"itemSourceType": "keyword",
-				"itemSourceName": "CUContactFunction",
-				"addEmptyLine": true,
-				"fixedLabel": false
-			}
-    }
+//Funktion Kontakt
+{
+  "component": "EditSelect",
+  "inputs": {
+    "fieldName": "fdcucontactfunction",
+    "label": "Funktion",
+    "mode": "select",
+    "allowValuesNotInList": false,
+    "itemSourceType": "keyword",
+    "itemSourceName": "CUContactFunction",
+    "addEmptyLine": true,
+    "fixedLabel": false
+  }
+}
 ```
 
 
