@@ -474,7 +474,7 @@ Der neue InAppEditmode benutzt analog zum Lesemodus einen sogenannten 'editStyle
 
 ## Neue Dokumententyp im InAppEditmode bereitstellen
 
-Um einen Dokumententyp im neuen Bearbeitenmodus zu erstellen, muss der 'editStyle' im Parameter 'creatStyle' der Erstellenaktion hinterlegt werden. Beispiel: `"createStyle": "esCProfile"`.
+Um einen Dokumententyp im neuen Bearbeitenmodus zu erstellen, muss der 'editStyle' im Parameter 'createStyle' der Erstellenaktion hinterlegt werden. Beispiel: `"createStyle": "esCProfile"`.
 
 ## Bearbeiten eines Dokumententyps auf InAppEditmode umstellen.
 
