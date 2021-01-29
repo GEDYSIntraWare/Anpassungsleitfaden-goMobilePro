@@ -175,6 +175,15 @@ Es ist möglich UND und ODER Bedingungen, die auf Feldwerte, die Konfiguration u
 
 Rendered kann auch auf CRM- und ACL-Rollen prüfen mit `type` "role" und "aclrole". "aclrole" prüft auf die ACL Rollen der MobileOnline Datenbank und ist immer ein Array. Deswegen muss hier der Operator `contains` genutzt werden.
 
+Es gibt folgende Typen die mit `type` für Bedingungen verwendet werden können:
+
+* doc: Feldwert aus dem Dokument
+* globalconfig: Wert aus dem globalconfig Objekt des Configsyncs
+* dbconfig: Wert aus dem Datenbankobjekt der aktuellen Datenbank
+* data: Wert aus dem Dataobjekt eines Dokuments im EditMode
+* role: Aktuelle CRM-Rolle
+* aclrole: ACL-Rolle
+
 ### Komplexeres Beispiel mit verschiedenen Typen
 
 ```json
@@ -510,6 +519,69 @@ createMenu := "csTask";
 
 "<documentStyle>" + documentStyle + "</documentStyle><actionMenu>" + actionMenu + "</actionMenu><createMenu>" + createMenu + "</createMenu><editStyle>" + editStyle + "</editStyle>"
 ```
+
+## Schlüsselworte auslesen und in Config-Objekt aufnehmen
+Funktion cuGetKeywords
+
+```javascript
+function cuGetKeywords(object){
+	//auslesen
+	var appConfig = new com.gi.crm.mobile.tools.AppConfiguration;	
+	var cuContactFunction = fromJson(appConfig.getKeywordConfig("901", "fdCUContactFunction", "Customer"));
+	var cuTrainings = fromJson(appConfig.getKeywordConfig("901", "fdCUTrainings", "Instasell"));
+	var salutationAddress = fromJson(appConfig.getKeywordConfig("901", "SalutationAddress", "Addresses"));
+
+	//in Objekt schreiben
+	object.CUContactFunction = cuContactFunction; 
+	object.CUTrainings = cuTrainings;
+	object.CUSalutationAddress = salutationAddress;
+
+
+	//Ermitteln von Werten aus Aliasschlüsselwortlisten Klarname|Alias, hier Bestellnummer|Preis
+	var cuProducts;
+	var cuParamArray;
+	for (i=0; i < cuProductLineAliases.length; i++){
+		cuProducts = fromJson(appConfig.getKeywordConfig("901", ("fdCUProducts." + cuProductLineAliases[i]), "Customer"));
+		for(n=0; n < cuProducts.Office.values.length; n++){
+			//print(cuProducts.Office.values[n].alias);
+			if(cuProducts.Office.values[n].alias.indexOf("#") != -1){
+				cuParamArray = cuProducts.Office.values[n].alias.split("#");
+				cuProducts.Office.values[n].ordernumber = cuParamArray[0];				
+				cuProducts.Office.values[n].price = cuParamArray[1];
+				//print("Alias: " + cuProducts.Office.values[n].alias)
+			}
+			//else {
+			//	cuProducts.Office.values[n].alias = cuProducts.Office.values[n].label
+			//};
+			cuProducts.Office.values[n].alias = cuProducts.Office.values[n].label
+		};
+		object["CUProducts_" + cuProductLineAliases[i]] = cuProducts;
+	};
+	return object;
+}
+
+```
+
+### Zugriff auf Schlüsselwort 
+
+Beispiel aus cuGetDocumentStyle
+```javascript
+		//Funktion Kontakt
+		{
+			"component": "EditSelect",
+			"inputs": {
+				"fieldName": "fdcucontactfunction",
+				"label": "Funktion",
+				"mode": "select",
+				"allowValuesNotInList": false,
+				"itemSourceType": "keyword",
+				"itemSourceName": "CUContactFunction",
+				"addEmptyLine": true,
+				"fixedLabel": false
+			}
+    }
+```
+
 
 # Offline Synchronisation
 
