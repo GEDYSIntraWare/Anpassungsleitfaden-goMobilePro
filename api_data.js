@@ -839,7 +839,14 @@ define({ "api": [
             "description": "<p>&quot;Rendered&quot; object to hide field if conditions do not apply</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Example with refresh to trigger computations in backend:",
+          "content": "{\n\t\t\t\"component\": \"EditCheckBox\",\n\t\t\t\"inputs\": {\n\t\t\t\t\"fieldName\": \"fdcuverifyorder\",\n\t\t\t\t\"label\": \"verify\",\n\t\t\t\t\"checkedValue\": \"1\",\n\t\t\t\t\"fixedLabel\": false,\n\t\t\t\t\"refreshOnChange\": true\n\t\t\t}\n\t\t},",
+          "type": "json"
+        }
+      ]
     },
     "filename": "src/app/components/edit-fields/edit-checkbox/edit-checkbox.component.ts",
     "groupTitle": "EditField"
@@ -961,6 +968,11 @@ define({ "api": [
           "title": "customFormat-Example:",
           "content": "//https://ionicframework.com/docs/api/components/datetime/DateTime/#iso-8601-datetime-format-yyyy-mm-ddthh-mmz\nDD.MM.YYYY or HH:mm",
           "type": "String"
+        },
+        {
+          "title": "Example-Component:",
+          "content": "{\n\t\"component\": \"EditDate\",\n\t\"inputs\": {\n\t\t\"fieldName\": \"fdcuorderdelivereddate\",\n\t\t\"label\": \"Delivery date\",\n\t\t\"defaultToday\": false,\n\t\t\"datetime\": false,\n\t\t\"required\": false,\n\t\t\"fixedLabel\": false\n\t}\n},",
+          "type": "json"
         }
       ]
     },
@@ -1114,7 +1126,14 @@ define({ "api": [
             "description": "<p>&quot;Rendered&quot; object to hide field if conditions do not apply</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Example invalid color to show simple text:",
+          "content": "    {\n\t\t\t\"component\": \"EditDivider\",\n\t\t\t\"inputs\": {\n\t\t\t\t\"color\": \"giorange\",\n\t\t\t\t\"label\": \"Distribution\"\n\t\t\t}\n\t\t}",
+          "type": "json"
+        }
+      ]
     },
     "filename": "src/app/components/edit-fields/edit-divider/edit-divider.component.ts",
     "groupTitle": "EditField"
@@ -1352,7 +1371,14 @@ define({ "api": [
             "description": "<p>&quot;Rendered&quot; object to hide field if conditions do not apply</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Example with refresh on change to set source field for EditSelect component:",
+          "content": "   {\n\t\t\t\t\"component\": \"EditList\",\n\t\t\t\t\"inputs\": {\n\t\t\t\t\t\"fieldName\": (\"fdcuproducts_\" + alias[i]),\n\t\t\t\t\t\"label\": \"Produtcs\",\n\t\t\t\t\t\"fixedLabel\": false,\n\t\t\t\t\t\"keyword\": (\"CUProducts_\" + alias[i]),\n\t\t\t\t\t\"allowValuesNotInList\": false,\n\t\t\t\t\t\"refreshOnChange\": true,\n\t\t\t\t\t\"multiValue\": true,\n\t\t\t\t\t\"rendered\": {\n\t\t\t\t\t\t\"field\": (\"fdcubrandavailable_\" + alias[i]),\n\t\t\t\t\t\t\"value\": \"1\",\n\t\t\t\t\t\t\"operator\": \"equals\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t},",
+          "type": "json"
+        }
+      ]
     },
     "filename": "src/app/components/edit-fields/edit-list/edit-list.component.ts",
     "groupTitle": "EditField"
@@ -1903,7 +1929,14 @@ define({ "api": [
             "description": "<p>&quot;Rendered&quot; object to hide field if conditions do not apply</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Example with computed fieldnames:",
+          "content": "{\n\t\t\t\t\"component\": \"EditNumber\",\n\t\t\t\t\"inputs\": {\n\t\t\t\t\t\"fieldName\": \"fdcuordersum1_\" + prodLineAliases[i],\n\t\t\t\t\t\"label\": \"Sum €\",\n\t\t\t\t\t\"fractionCount\": 2,\n\t\t\t\t\t\"fixedLabel\": true,\n\t\t\t\t\t\"disabled\": true,\n\t\t\t\t\t\"rendered\": {\n\t\t\t\t\t\t\"andConditions\": [\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\"field\": (\"fdcuorderprodlineavail_\" + prodLineAliases[i]),\n\t\t\t\t\t\t\t\t\"value\": \"1\",\n\t\t\t\t\t\t\t\t\"operator\": \"equals\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\"field\": (\"fdcuorderproduct1_\" + prodLineAliases[i]),\n\t\t\t\t\t\t\t\t\"operator\": \"notempty\"\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}",
+          "type": "json"
+        }
+      ]
     },
     "filename": "src/app/components/edit-fields/edit-number/edit-number.component.ts",
     "groupTitle": "EditField"
@@ -2367,6 +2400,16 @@ define({ "api": [
           "title": "Item Schema",
           "content": " {\n\t  \"alias\": \"string\",\n   \"label\": \"string\",\n   \"checked\": \"boolean\"\n\t}",
           "type": "json"
+        },
+        {
+          "title": "Example with keyword:",
+          "content": "\n    {\n\t\t\t\"component\": \"EditSelect\",\n\t\t\t\"inputs\": {\n\t\t\t\t\"fieldName\": \"fdcucontactfunction\",\n\t\t\t\t\"label\": \"Function\",\n\t\t\t\t\"mode\": \"select\",\n\t\t\t\t\"allowValuesNotInList\": false,\n\t\t\t\t\"itemSourceType\": \"keyword\",\n\t\t\t\t\"itemSourceName\": \"CUContactFunction\",\n\t\t\t\t\"addEmptyLine\": true,\n\t\t\t\t\"fixedLabel\": false\n\t\t\t}\n\t\t},",
+          "type": "json"
+        },
+        {
+          "title": "Example with select values computed from values in EditList component that refreshed the page:",
+          "content": "{\n  \"component\": \"EditSelect\",\n  \"inputs\": {\n    \"fieldName\": (\"fdcuarticle\" + p + \"_\" + alias[i]),\n    \"label\": (\"Article \" + p),\n    \"mode\": \"select\",\n    \"itemSourceType\": \"field\",\n    \"itemSourceName\": (\"fdcuproducts_\" + alias[i]),\n    \"addEmptyLine\": true,\n    \"rendered\": {\n      \"andConditions\": [\n        {\n          \"field\": (\"fdcuorderarticle_\" + alias[i]),\n          \"value\": \"1\",\n          \"operator\": \"equals\"\n        },\n        {\n          \"field\": (\"fdcubrandavailable_\" + alias[i]),\n          \"value\": \"1\",\n          \"operator\": \"equals\"\n        },\n        {\n          \"field\": (\"fdcuarticle\" + (p-1) + \"_\" + alias[i]),\n          \"operator\": \"notempty\"\n        }\n        ]\n    }\n  }\n}",
+          "type": "json"
         }
       ]
     },
@@ -2717,7 +2760,14 @@ define({ "api": [
             "description": "<p>&quot;Rendered&quot; object to hide field if conditions do not apply</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Example:",
+          "content": "{\n\t\"component\": \"EditText\",\n\t\"inputs\": {\n\t\t\"fieldName\": \"fdcucontact\",\n\t\t\"label\": \"Contact Person\",\n\t\t\"fixedLabel\": false, //Label fixed at the start or floating above value\n\t\t\"disabled\": true, //editable true/false\n\t\t\"required\": true, //client side validation if field is empty\n\t\t\"refreshOnChange\": true, //Enable document post to server on value change\n\t\t\"rendered\": { //hide when\n\t\t\t\"field\": \"distributionlist\",\n\t\t\t\"operator\": \"notempty\"\n\t\t}\n\t}\n},",
+          "type": "json"
+        }
+      ]
     },
     "filename": "src/app/components/edit-fields/edit-text/edit-text.component.ts",
     "groupTitle": "EditField"
@@ -2862,7 +2912,14 @@ define({ "api": [
             "description": "<p>&quot;Rendered&quot; object to hide field if conditions do not apply</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Example:",
+          "content": "{\n\t\"component\": \"EditText\",\n\t\"inputs\": {\n\t\t\"fieldName\": \"fdcucontact\",\n\t\t\"label\": \"Contact Person\",\n\t\t\"fixedLabel\": false, //Label fixed at the start or floating above value\n\t\t\"enableTimestamp\": false, // Show timestamp button\n\t\t\"disabled\": true, //editable true/false\n\t\t\"required\": true, //client side validation if field is empty\n\t\t\"refreshOnChange\": true, //Enable document post to server on value change\n\t\t\"rendered\": { //hide when\n\t\t\t\"field\": \"distributionlist\",\n\t\t\t\"operator\": \"notempty\"\n\t\t}\n\t}\n},",
+          "type": "json"
+        }
+      ]
     },
     "filename": "src/app/components/edit-fields/edit-text-multi/edit-text-multi.component.ts",
     "groupTitle": "EditField"
