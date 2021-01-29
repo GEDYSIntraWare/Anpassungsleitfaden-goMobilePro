@@ -275,6 +275,9 @@ Mit dem Parameter `"refreshOnChange": true` kann man dafür sorgen, dass das Dok
 
 Um die beste Benutzererfahrung für goMobile Pro zu bieten, sollte ein Refresh nur eingesetzt werden, wenn es unbedingt nötig ist. Vieles, wie zum Beispiel das Ausblenden von Feldern, kann auch ohne Refresh erreicht werden. Der sparsamen Einsatz des Refresh Parameters führt dazu, dass sich die App subjektiv deutlich performanter anfühlt.
 
+Wird z.B. mit dem "EditCheckBox" Component mittels "refreshOnChange" ein Refresh ausgelöst, können mit der Methode refreshEditModeREST, die man in die abgeleitete Document Klasse einfügt, Berechnungen durchgeführt werden, deren Ergebnis dann wiederum mittels EditText Components und der Eigenschaft "disabled: false" unmittelbar angezeigt werden kann, z.B. Validierung von Bestelldaten, bevor eine Bestellung aufgegeben werden kann.
+
+
 ## Dokumente im Java-Backend aufbereiten
 
 Für den neuen InAppEditmode gibt es einige Erweiterungen im Java-Framework, die es erlauben Änderungen an den Dokumenten im Backend zu machen, wenn diese per goMobile Pro bearbeitet werden.
