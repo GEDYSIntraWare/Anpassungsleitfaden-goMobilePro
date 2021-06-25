@@ -587,4 +587,19 @@ Die Offline Synchronisation ist ähnlich wie der Onlinemodus erweiterbar. Für d
 
 Die Anzeige von Listen und Dokumenten nutzt auch 'listStlyes' und 'documentStyles'. Für die synchronisierten Firmen und Kontakte gibt es in der JavaScript-Bibliothek 'app_getConfig' jeweils einen 'listStyle' und 'documentStyle' mit dem Prefix "OFFLINE". Diese können für Anpassungen über die JavaScript-Bibliothek 'app_customization' verändert werden.
 
+# Tablet mode
+
+Mit goMobile Pro Version 5.0 wurde der sogenannte Tablet mode eingeführt. Bei Anpassungen kann man mit dem Property `size` steuern wie breit ein Component auf einem Tablet angezeigt wird. Der Tablet mode basiert auf einem Grid, dass mit 12 Spalten aufgebaut ist. Der Wert von `size` ist Anzahl von Spalten die ein Component auf einem Tablet einnehmen soll. Wenn man beispielsweise eine zweispaltige Darstellung wünscht, dann müssen alle Components ein `size: '6'` bekommen. Einzelne Components können aber auch breiter oder schmaler gestaltet werden und das Grid richtet sich dementsprechend aus.
+
+```json
+{
+  "component": "LabeledText",
+  "size": "6",
+  "inputs": {
+      "label": "Status",
+      "value": "LC01058"
+  }
+}
+```
+
 # Komponenten
