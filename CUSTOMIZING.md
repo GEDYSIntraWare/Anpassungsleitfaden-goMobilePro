@@ -280,13 +280,13 @@ Wird z.B. mit dem "EditCheckBox" Component mittels "refreshOnChange" ein Refresh
 
 ## Dokumente im Java-Backend aufbereiten
 
-Für den neuen InAppEditmode gibt es einige Erweiterungen im Java-Framework, die es erlauben Änderungen an den Dokumenten im Backend zu machen, wenn diese per goMobile Pro bearbeitet werden.
+Für den neuen InAppEditMode gibt es einige Erweiterungen im Java-Framework, die es erlauben Änderungen an den Dokumenten im Backend zu machen, wenn diese per goMobile Pro bearbeitet werden.
 
 Für Lesemodus gab es bereits 'addFieldsToRestServiceResponse' und für den Lesemodus sind diese Methoden interessant:
 
 **initEditModeREST**
 
-Diese Methode wird aufgerufen, wenn ein Dokument in den Editmode geschaltet werden und kann beispielsweise dafür genutzt werden um Felder für den EditMode zu erzeugen.
+Diese Methode wird aufgerufen, wenn ein Dokument in den EditMode geschaltet werden und kann beispielsweise dafür genutzt werden um Felder für den EditMode zu erzeugen.
 
 **refreshEditModeREST**
 
@@ -308,7 +308,7 @@ Mit dieser Methode könne temporäre Felder im Dokument für den EditMode hinter
 
 Mit dieser Methode kann der EditStyle programmatisch gesetzt werden.
 
-**In Dokumentenklassen bzw. Ableitungen für Anpassungen können diese Methoden sehr nützlich sein um das Verhalten des Editmodes zu beeinflussen.**
+**In Dokumentenklassen bzw. Ableitungen für Anpassungen können diese Methoden sehr nützlich sein um das Verhalten des EditModes zu beeinflussen.**
 
 # Eine eigene Datenbank in goMobile Pro verwenden
 
@@ -506,13 +506,13 @@ Der neue InAppEditmode benutzt analog zum Lesemodus einen sogenannten 'editStyle
 }
 ```
 
-## Neue Dokumententyp im InAppEditmode bereitstellen
+## Neue Dokumententyp im InAppEditMode bereitstellen
 
 Um einen Dokumententyp im neuen Bearbeitenmodus zu erstellen, muss der 'editStyle' im Parameter 'createStyle' der Erstellenaktion hinterlegt werden. Beispiel: `"createStyle": "esCProfile"`.
 
-## Bearbeiten eines Dokumententyps auf InAppEditmode umstellen.
+## Bearbeiten eines Dokumententyps auf InAppEditMode umstellen.
 
-Damit ein Dokument im InAppEditmode bearbeitet werden kann, muss einerseits die Bearbeitenaktion im Aktionsmenü von 'editDocument' auf 'editDocumentNew' geändert werden. Andererseits benötigt diese Bearbeitenaktion die Angabe des 'editStyles' in der 'mobileConfig' Spalte der Ansichten, über die das Dokument geöffnet werden kann. In der Regel ist das eine Listenansicht (JAPI..List) aus der Flexview und auf jeden Fall die Doctype-Ansicht (JAPIMobileDT...). Der 'editStyle' wird mit '<editStyle>' in die 'mobileConfig' Spalte eingefügt:
+Damit ein Dokument im InAppEditMode bearbeitet werden kann, muss einerseits die Bearbeitenaktion im Aktionsmenü von 'editDocument' auf 'editDocumentNew' geändert werden. Andererseits benötigt diese Bearbeitenaktion die Angabe des 'editStyles' in der 'mobileConfig' Spalte der Ansichten, über die das Dokument geöffnet werden kann. In der Regel ist das eine Listenansicht (JAPI..List) aus der Flexview und auf jeden Fall die Doctype-Ansicht (JAPIMobileDT...). Der 'editStyle' wird mit '<editStyle>' in die 'mobileConfig' Spalte eingefügt:
 
 ```
 documentStyle:= "dsTask";
