@@ -300,7 +300,7 @@ Diese Methoden wird aufgerufen, wenn das Dokument in goMobile Pro gespeichert wi
 
 An diversen Stellen kann man mit dem Pipe |GetData Werte aus dem Data Objekt abrufen. Mit dieser Methode kann das Data Objekt mit temporären Werten befüllt werden. Alternativ zu temporären Feldern.
 
-**'addTempFieldToRESTDoc'**
+**addTempFieldToRESTDoc**
 
 Mit dieser Methode könne temporäre Felder im Dokument für den EditMode hinterlegt werden um diese beispielsweise für Components zu verwenden oder um Werte zwischen Refreshes zu speichern. Diese Felder werden vor dem Speichern wieder entfernt.
 

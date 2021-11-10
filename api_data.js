@@ -636,6 +636,89 @@ define({ "api": [
     "url": "/EditAttachment",
     "title": "EditAttachment",
     "name": "EditAttachment",
+    "version": "5.0.2",
+    "group": "EditField",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "initKey",
+            "description": "<p>key to init data (for example: used for share)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "quality",
+            "defaultValue": "1",
+            "description": "<p>Values lower 1 compress images with the types image/jpeg or image/webp. Suggested Value 0.6.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "color",
+            "description": "<p>Name of color</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "label",
+            "description": "<p>Fieldname of label or parameter as fallback</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "fieldName",
+            "description": "<p>Name of field to edit</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "required",
+            "defaultValue": "false",
+            "description": "<p>Use clientside validation if field is empty</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "refreshOnChange",
+            "defaultValue": "false",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "fixedLabel",
+            "defaultValue": "true",
+            "description": "<p>Show label fixed instead of floating</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "rendered",
+            "description": "<p>&quot;Rendered&quot; object to hide field if conditions do not apply</p>"
+          }
+        ]
+      }
+    },
+    "filename": "src/app/components/edit-fields/edit-attachment/edit-attachment.component.ts",
+    "groupTitle": "EditField"
+  },
+  {
+    "type": "get",
+    "url": "/EditAttachment",
+    "title": "EditAttachment",
+    "name": "EditAttachment",
     "version": "4.5.1",
     "group": "EditField",
     "parameter": {
@@ -704,7 +787,7 @@ define({ "api": [
         ]
       }
     },
-    "filename": "src/app/components/edit-fields/edit-attachment/edit-attachment.component.ts",
+    "filename": "src/apidoc.ts",
     "groupTitle": "EditField"
   },
   {
@@ -1271,6 +1354,71 @@ define({ "api": [
   },
   {
     "type": "get",
+    "url": "/EditImage",
+    "title": "EditImage",
+    "name": "EditImage",
+    "version": "5.0.2",
+    "group": "EditField",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "color",
+            "description": "<p>Name of color</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "label",
+            "description": "<p>Label for add button</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "labelRemove",
+            "description": "<p>Label for remove button</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "imageQuality",
+            "description": "<p>Camera quality option</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "imageHeight",
+            "description": "<p>Camera height option</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "imageWidth",
+            "description": "<p>Camera width option</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "multiValue",
+            "description": "<p>determines if edit-image should allow one or multiple values</p>"
+          }
+        ]
+      }
+    },
+    "filename": "src/app/components/edit-fields/edit-image/edit-image.component.ts",
+    "groupTitle": "EditField"
+  },
+  {
+    "type": "get",
     "url": "/EditList",
     "title": "EditList",
     "name": "EditList",
@@ -1825,7 +1973,7 @@ define({ "api": [
     "url": "/EditLogo",
     "title": "EditLogo",
     "name": "EditLogo",
-    "version": "4.2.0",
+    "version": "5.0.2",
     "group": "EditField",
     "parameter": {
       "fields": {
@@ -1855,6 +2003,43 @@ define({ "api": [
       }
     },
     "filename": "src/app/components/edit-fields/edit-logo/edit-logo.component.ts",
+    "groupTitle": "EditField"
+  },
+  {
+    "type": "get",
+    "url": "/EditLogo",
+    "title": "EditLogo",
+    "name": "EditLogo",
+    "version": "4.2.0",
+    "group": "EditField",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "label",
+            "description": "<p>Label for add button</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "labelRemove",
+            "description": "<p>Label for remove button</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "fieldName",
+            "description": "<p>Name of field to edit</p>"
+          }
+        ]
+      }
+    },
+    "filename": "src/apidoc.ts",
     "groupTitle": "EditField"
   },
   {
@@ -2991,8 +3176,68 @@ define({ "api": [
     "title": "Archive",
     "name": "Archive",
     "group": "Field",
-    "version": "4.2.0",
+    "version": "5.0.2",
     "filename": "src/app/components/fields/archive/archive.component.ts",
+    "groupTitle": "Field",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "rendered",
+            "description": "<p>&quot;Rendered&quot; object to hide field if conditions do not apply</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "get",
+    "url": "/Archive",
+    "title": "Archive",
+    "name": "Archive",
+    "group": "Field",
+    "version": "4.2.0",
+    "filename": "src/apidoc.ts",
+    "groupTitle": "Field"
+  },
+  {
+    "type": "get",
+    "url": "/Conflict",
+    "title": "Conflict",
+    "name": "Conflict",
+    "group": "Field",
+    "version": "5.0.2",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "icon",
+            "description": "<p>Name or number</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "text",
+            "description": "<p>Text to display</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "rendered",
+            "description": "<p>&quot;Rendered&quot; object to hide field if conditions do not apply</p>"
+          }
+        ]
+      }
+    },
+    "filename": "src/app/components/fields/conflict/conflict.ts",
     "groupTitle": "Field"
   },
   {
@@ -3022,7 +3267,37 @@ define({ "api": [
         ]
       }
     },
-    "filename": "src/app/components/fields/conflict/conflict.ts",
+    "filename": "src/apidoc.ts",
+    "groupTitle": "Field"
+  },
+  {
+    "type": "get",
+    "url": "/ConnectionList",
+    "title": "ConnectionList",
+    "name": "ConnectionList",
+    "group": "Field",
+    "version": "5.0.2",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "pointer",
+            "description": "<p>Fieldname of field with pointer</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "rendered",
+            "description": "<p>&quot;Rendered&quot; object to hide field if conditions do not apply</p>"
+          }
+        ]
+      }
+    },
+    "filename": "src/app/components/fields/connection-list/connection-list.component.ts",
     "groupTitle": "Field"
   },
   {
@@ -3039,13 +3314,57 @@ define({ "api": [
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "fdMe",
-            "description": "<p>Fieldname of field with fdMe pointer</p>"
+            "field": "pointer",
+            "description": "<p>Fieldname of field with pointer</p>"
           }
         ]
       }
     },
-    "filename": "src/app/components/fields/connection-list/connection-list.component.ts",
+    "filename": "src/apidoc.ts",
+    "groupTitle": "Field"
+  },
+  {
+    "type": "get",
+    "url": "/Divider",
+    "title": "Divider",
+    "name": "Divider",
+    "group": "Field",
+    "version": "5.0.2",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "label",
+            "description": "<p>Fieldname of label or parameter as fallback</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "color",
+            "description": "<p>Name of color</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String[]",
+            "optional": false,
+            "field": "hideWhenEmpty",
+            "description": "<p>List of fieldnames to check, if all are empty divider is hidden</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "rendered",
+            "description": "<p>&quot;Rendered&quot; object to hide field if conditions do not apply</p>"
+          }
+        ]
+      }
+    },
+    "filename": "src/app/components/fields/divider/divider.component.ts",
     "groupTitle": "Field"
   },
   {
@@ -3082,7 +3401,51 @@ define({ "api": [
         ]
       }
     },
-    "filename": "src/app/components/fields/divider/divider.component.ts",
+    "filename": "src/apidoc.ts",
+    "groupTitle": "Field"
+  },
+  {
+    "type": "get",
+    "url": "/DocumentList",
+    "title": "DocumentList",
+    "name": "DocumentList",
+    "group": "Field",
+    "version": "5.0.2",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "label",
+            "description": "<p>Fieldname of label or parameter as fallback</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "displayList",
+            "description": "<p>Fieldname of displaylist</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "idList",
+            "description": "<p>Fieldname of attachment list of ids</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "rendered",
+            "description": "<p>&quot;Rendered&quot; object to hide field if conditions do not apply</p>"
+          }
+        ]
+      }
+    },
+    "filename": "src/app/components/fields/document-list/document-list.component.ts",
     "groupTitle": "Field"
   },
   {
@@ -3119,7 +3482,135 @@ define({ "api": [
         ]
       }
     },
-    "filename": "src/app/components/fields/document-list/document-list.component.ts",
+    "filename": "src/apidoc.ts",
+    "groupTitle": "Field"
+  },
+  {
+    "type": "get",
+    "url": "/HeaderAddress",
+    "title": "HeaderAddress",
+    "name": "HeaderAddress",
+    "group": "Field",
+    "version": "5.0.2",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "color",
+            "description": "<p>Name of color</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number/String",
+            "optional": false,
+            "field": "icon",
+            "description": "<p>Name or number</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>Fieldname of title</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "subtitle",
+            "description": "<p>Fieldname of subtitle</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "pretitle",
+            "description": "<p>Fieldname of text above title</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "logoUrl",
+            "description": "<p>Fieldname of logo url or parameter as fallback</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "salutation",
+            "description": "<p>Fieldname of salutation</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object[]",
+            "optional": false,
+            "field": "callFields",
+            "description": "<p>List with objects: {label: string, fieldName: string} for call button</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object[]",
+            "optional": false,
+            "field": "mailFields",
+            "description": "<p>List with objects: {label: string, fieldName: string} for mail button</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object[]",
+            "optional": false,
+            "field": "mapsFields",
+            "description": "<p>List with objects: {label: string, fieldName: string} for maps button</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "otherEMail",
+            "description": "<p>Name of column with EMail addresss from Communications field</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "otherPhone",
+            "description": "<p>Name of column with phone numbers from Communications field</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "callCreateAction",
+            "description": "<p>Name of create action for call button, &quot;DISABLED&quot; if no create should be opened</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "mailCreateAction",
+            "description": "<p>Name of create action for mail button</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String[]",
+            "optional": false,
+            "field": "lines",
+            "description": "<p>Array of fieldnames for additional lines in header</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "rendered",
+            "description": "<p>&quot;Rendered&quot; object to hide field if conditions do not apply</p>"
+          }
+        ]
+      }
+    },
+    "filename": "src/app/components/fields/header-address/header-address.component.ts",
     "groupTitle": "Field"
   },
   {
@@ -3233,7 +3724,7 @@ define({ "api": [
         ]
       }
     },
-    "filename": "src/app/components/fields/header-address/header-address.component.ts",
+    "filename": "src/apidoc.ts",
     "groupTitle": "Field"
   },
   {
@@ -3407,6 +3898,83 @@ define({ "api": [
     "title": "HeaderService",
     "name": "HeaderService",
     "group": "Field",
+    "version": "5.0.2",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number/String",
+            "optional": false,
+            "field": "icon",
+            "description": "<p>Name or number</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>Fieldname of title</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "subtitle",
+            "description": "<p>Fieldname of subtitle</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "link",
+            "description": "<p>System link</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "create",
+            "description": "<p>Create document link</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String[]",
+            "optional": false,
+            "field": "lines",
+            "description": "<p>Array of fieldnames for additional lines in header</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "rendered",
+            "description": "<p>&quot;Rendered&quot; object to hide field if conditions do not apply</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "link Example:",
+          "content": " {\n   \"link\":\n           {\n\t\t\t\t\t    \"text\": \"LC01753\",\n\t\t\t\t\t    \"url\": \"LC01753\",\n\t\t\t\t\t    \"protocol\": \"tel:\"\n\t\t\t\t     }\n  }",
+          "type": "json"
+        },
+        {
+          "title": "create Example:",
+          "content": " {\n   \"create\":\n           {\n\t\t\t\t\t    \"text\": \"EMailAddress\",\n\t\t\t\t\t    \"createAction\": \"EMail\"\n\t\t\t\t     }\n  }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/app/components/fields/header-service/header-service.component.ts",
+    "groupTitle": "Field"
+  },
+  {
+    "type": "get",
+    "url": "/HeaderService",
+    "title": "HeaderService",
+    "name": "HeaderService",
+    "group": "Field",
     "version": "4.5.1",
     "parameter": {
       "fields": {
@@ -3468,7 +4036,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "src/app/components/fields/header-service/header-service.component.ts",
+    "filename": "src/apidoc.ts",
     "groupTitle": "Field"
   },
   {
@@ -3540,6 +4108,64 @@ define({ "api": [
     "title": "HeaderStandard",
     "name": "HeaderStandard",
     "group": "Field",
+    "version": "5.0.2",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number/String",
+            "optional": false,
+            "field": "icon",
+            "description": "<p>Name or number</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>Fieldname of title</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "subtitle",
+            "description": "<p>Fieldname of subtitle</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "logoUrl",
+            "description": "<p>Fieldname of logo url or parameter as fallback</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String[]",
+            "optional": false,
+            "field": "lines",
+            "description": "<p>Array of fieldnames for additional lines in header</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "rendered",
+            "description": "<p>&quot;Rendered&quot; object to hide field if conditions do not apply</p>"
+          }
+        ]
+      }
+    },
+    "filename": "src/app/components/fields/header-standard/header-standard.component.ts",
+    "groupTitle": "Field"
+  },
+  {
+    "type": "get",
+    "url": "/HeaderStandard",
+    "title": "HeaderStandard",
+    "name": "HeaderStandard",
+    "group": "Field",
     "version": "4.5.1",
     "parameter": {
       "fields": {
@@ -3582,7 +4208,7 @@ define({ "api": [
         ]
       }
     },
-    "filename": "src/app/components/fields/header-standard/header-standard.component.ts",
+    "filename": "src/apidoc.ts",
     "groupTitle": "Field"
   },
   {
@@ -3627,6 +4253,82 @@ define({ "api": [
       }
     },
     "filename": "src/apidoc.ts",
+    "groupTitle": "Field"
+  },
+  {
+    "type": "get",
+    "url": "/LabeledAddress",
+    "title": "LabeledAddress",
+    "name": "LabeledAddress",
+    "group": "Field",
+    "version": "5.0.2",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number/String",
+            "optional": false,
+            "field": "icon",
+            "description": "<p>Name or number</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "maps",
+            "defaultValue": "false",
+            "description": "<p>Display map</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "mapsHeight",
+            "defaultValue": "200",
+            "description": "<p>Height of map in pixel</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "label",
+            "description": "<p>Fieldname of label or parameter as fallback</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "value",
+            "description": "<p>Fieldname of value</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "adrType",
+            "defaultValue": "gemain",
+            "description": "<p>GI Adresstype</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "stackedLabel",
+            "defaultValue": "false",
+            "description": "<p>Change label style, moves label on top of value if true</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "rendered",
+            "description": "<p>&quot;Rendered&quot; object to hide field if conditions do not apply</p>"
+          }
+        ]
+      }
+    },
+    "filename": "src/app/components/fields/labeled-address/labeled-address.component.ts",
     "groupTitle": "Field"
   },
   {
@@ -3695,7 +4397,66 @@ define({ "api": [
         ]
       }
     },
-    "filename": "src/app/components/fields/labeled-address/labeled-address.component.ts",
+    "filename": "src/apidoc.ts",
+    "groupTitle": "Field"
+  },
+  {
+    "type": "get",
+    "url": "/LabeledCreate",
+    "title": "LabeledCreate",
+    "name": "LabeledCreate",
+    "group": "Field",
+    "version": "5.0.2",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number/String",
+            "optional": false,
+            "field": "icon",
+            "description": "<p>Name or number</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "label",
+            "description": "<p>Fieldname of label or parameter as fallback</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "value",
+            "description": "<p>Fieldname of value</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "createAction",
+            "description": "<p>Name of action from create actions of this document</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "stackedLabel",
+            "defaultValue": "false",
+            "description": "<p>Change label style, moves label on top of value if true</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "rendered",
+            "description": "<p>&quot;Rendered&quot; object to hide field if conditions do not apply</p>"
+          }
+        ]
+      }
+    },
+    "filename": "src/app/components/fields/labeled-create/labeled-create.component.ts",
     "groupTitle": "Field"
   },
   {
@@ -3747,7 +4508,87 @@ define({ "api": [
         ]
       }
     },
-    "filename": "src/app/components/fields/labeled-create/labeled-create.component.ts",
+    "filename": "src/apidoc.ts",
+    "groupTitle": "Field"
+  },
+  {
+    "type": "get",
+    "url": "/LabeledDate",
+    "title": "LabeledDate",
+    "name": "LabeledDate",
+    "group": "Field",
+    "version": "5.0.2",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number/String",
+            "optional": false,
+            "field": "icon",
+            "description": "<p>Name or number</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "label",
+            "description": "<p>Fieldname of label or parameter as fallback</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "value",
+            "description": "<p>Fieldname of value</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "formatter",
+            "description": "<p>Dateformatter see: https://angular.io/api/common/DatePipe</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "value2",
+            "description": "<p>Fieldname of value next to first value</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "formatter2",
+            "description": "<p>Dateformatter for value2 see: https://angular.io/api/common/DatePipe</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "stackedLabel",
+            "defaultValue": "false",
+            "description": "<p>Change label style, moves label on top of value if true</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "rendered",
+            "description": "<p>&quot;Rendered&quot; object to hide field if conditions do not apply</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Example formatter:",
+          "content": "\"dd.MM.yyyy\"",
+          "type": "String"
+        }
+      ]
+    },
+    "filename": "src/app/components/fields/labeled-date/labeled-date.component.ts",
     "groupTitle": "Field"
   },
   {
@@ -3820,7 +4661,67 @@ define({ "api": [
         }
       ]
     },
-    "filename": "src/app/components/fields/labeled-date/labeled-date.component.ts",
+    "filename": "src/apidoc.ts",
+    "groupTitle": "Field"
+  },
+  {
+    "type": "get",
+    "url": "/LabeledLink",
+    "title": "LabeledLink",
+    "name": "LabeledLink",
+    "group": "Field",
+    "version": "5.0.2",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number/String",
+            "optional": false,
+            "field": "icon",
+            "description": "<p>Name or number</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "label",
+            "description": "<p>Fieldname of label or parameter as fallback</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "value",
+            "description": "<p>Fieldname of value</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "protocol",
+            "defaultValue": "http",
+            "description": "<p>Prefix value with protocol</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "stackedLabel",
+            "defaultValue": "false",
+            "description": "<p>Change label style, moves label on top of value if true</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "rendered",
+            "description": "<p>&quot;Rendered&quot; object to hide field if conditions do not apply</p>"
+          }
+        ]
+      }
+    },
+    "filename": "src/app/components/fields/labeled-link/labeled-link.component.ts",
     "groupTitle": "Field"
   },
   {
@@ -3873,7 +4774,51 @@ define({ "api": [
         ]
       }
     },
-    "filename": "src/app/components/fields/labeled-link/labeled-link.component.ts",
+    "filename": "src/apidoc.ts",
+    "groupTitle": "Field"
+  },
+  {
+    "type": "get",
+    "url": "/LabeledMultiline",
+    "title": "LabeledMultiline",
+    "name": "LabeledMultiline",
+    "group": "Field",
+    "version": "5.0.2",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number/String",
+            "optional": false,
+            "field": "icon",
+            "description": "<p>Name or number</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "value",
+            "description": "<p>Fieldname of label or parameter as fallback</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "label",
+            "description": "<p>Fieldname of value</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "rendered",
+            "description": "<p>&quot;Rendered&quot; object to hide field if conditions do not apply</p>"
+          }
+        ]
+      }
+    },
+    "filename": "src/app/components/fields/labeled-multiline/labeled-multivalue.component.ts",
     "groupTitle": "Field"
   },
   {
@@ -3910,7 +4855,59 @@ define({ "api": [
         ]
       }
     },
-    "filename": "src/app/components/fields/labeled-multiline/labeled-multivalue.component.ts",
+    "filename": "src/apidoc.ts",
+    "groupTitle": "Field"
+  },
+  {
+    "type": "get",
+    "url": "/LabeledText",
+    "title": "LabeledText",
+    "name": "LabeledText",
+    "group": "Field",
+    "version": "5.0.2",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number/String",
+            "optional": false,
+            "field": "icon",
+            "description": "<p>Name or number</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "label",
+            "description": "<p>Fieldname of label or parameter as fallback</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "value",
+            "description": "<p>Fielname of value</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "stackedLabel",
+            "defaultValue": "false",
+            "description": "<p>Change label style, moves label on top of value if true</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "rendered",
+            "description": "<p>&quot;Rendered&quot; object to hide field if conditions do not apply</p>"
+          }
+        ]
+      }
+    },
+    "filename": "src/app/components/fields/labeled-text/labeled-text.component.ts",
     "groupTitle": "Field"
   },
   {
@@ -3955,7 +4952,7 @@ define({ "api": [
         ]
       }
     },
-    "filename": "src/app/components/fields/labeled-text/labeled-text.component.ts",
+    "filename": "src/apidoc.ts",
     "groupTitle": "Field"
   },
   {
@@ -3992,7 +4989,80 @@ define({ "api": [
         ]
       }
     },
-    "filename": "src/app/components/fields/labeled-text/labeled-text.component.ts",
+    "filename": "src/apidoc.ts",
+    "groupTitle": "Field"
+  },
+  {
+    "type": "get",
+    "url": "/LabeledTextarea",
+    "title": "LabeledTextarea",
+    "name": "LabeledTextarea",
+    "group": "Field",
+    "version": "5.0.2",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number/String",
+            "optional": false,
+            "field": "icon",
+            "description": "<p>Name or number</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "openRTAvailable",
+            "description": "<p>Enable open richtext mode</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "expandAvailable",
+            "description": "<p>Enable &quot;Show more&quot; button</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "itemMaxHeight",
+            "defaultValue": "9rem",
+            "description": "<p>Height in collapsed mode</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "value",
+            "description": "<p>Fieldname of value</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "label",
+            "description": "<p>Fieldname of label or parameter as fallback</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "attachmentValue",
+            "description": "<p>Fieldname of attachment list</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "rendered",
+            "description": "<p>&quot;Rendered&quot; object to hide field if conditions do not apply</p>"
+          }
+        ]
+      }
+    },
+    "filename": "src/app/components/fields/labeled-textarea/labeled-textarea.component.ts",
     "groupTitle": "Field"
   },
   {
@@ -4058,7 +5128,7 @@ define({ "api": [
         ]
       }
     },
-    "filename": "src/app/components/fields/labeled-textarea/labeled-textarea.component.ts",
+    "filename": "src/apidoc.ts",
     "groupTitle": "Field"
   },
   {
@@ -4068,8 +5138,69 @@ define({ "api": [
     "name": "Relations",
     "description": "<p>No parameters required. Works in all documents through giRelations properties</p>",
     "group": "Field",
-    "version": "3.0.0",
+    "version": "5.0.2",
     "filename": "src/app/components/fields/relations/relations.component.ts",
+    "groupTitle": "Field",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "rendered",
+            "description": "<p>&quot;Rendered&quot; object to hide field if conditions do not apply</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "get",
+    "url": "/Relations",
+    "title": "Relations",
+    "name": "Relations",
+    "description": "<p>No parameters required. Works in all documents through giRelations properties</p>",
+    "group": "Field",
+    "version": "3.0.0",
+    "filename": "src/apidoc.ts",
+    "groupTitle": "Field"
+  },
+  {
+    "type": "get",
+    "url": "/SocialMedia",
+    "title": "SocialMedia",
+    "name": "SocialMedia",
+    "group": "Field",
+    "version": "5.0.2",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "value",
+            "description": "<p>Fieldname of label or parameter as fallback</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "keyword",
+            "description": "<p>Keyword for display values</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "rendered",
+            "description": "<p>&quot;Rendered&quot; object to hide field if conditions do not apply</p>"
+          }
+        ]
+      }
+    },
+    "filename": "src/app/components/fields/social-media/social-media.component.ts",
     "groupTitle": "Field"
   },
   {
@@ -4099,7 +5230,52 @@ define({ "api": [
         ]
       }
     },
-    "filename": "src/app/components/fields/social-media/social-media.component.ts",
+    "filename": "src/apidoc.ts",
+    "groupTitle": "Field"
+  },
+  {
+    "type": "get",
+    "url": "/Status",
+    "title": "Status",
+    "name": "Status",
+    "group": "Field",
+    "version": "5.0.2",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "icon",
+            "description": "<p>Name or number</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "text",
+            "description": "<p>Text to display</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "color",
+            "defaultValue": "danger",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "rendered",
+            "description": "<p>&quot;Rendered&quot; object to hide field if conditions do not apply</p>"
+          }
+        ]
+      }
+    },
+    "filename": "src/app/components/fields/status/status.ts",
     "groupTitle": "Field"
   },
   {
@@ -4137,7 +5313,97 @@ define({ "api": [
         ]
       }
     },
-    "filename": "src/app/components/fields/status/status.ts",
+    "filename": "src/apidoc.ts",
+    "groupTitle": "Field"
+  },
+  {
+    "type": "get",
+    "url": "/Subform",
+    "title": "Subform",
+    "name": "Subform",
+    "group": "Field",
+    "version": "5.0.2",
+    "description": "<p>Groups fields in subforms and creates expandable sections</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "sectionLabel",
+            "description": "<p>Fieldname of label or parameter as fallback</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "color",
+            "description": "<p>Name of color</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String[]",
+            "optional": false,
+            "field": "hideWhenEmpty",
+            "description": "<p>List of fieldnames to check, if all are empty divider is hidden</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "subStyleName",
+            "description": "<p>Name of documentStyle for section</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String[]",
+            "optional": false,
+            "field": "fieldDefinitions",
+            "description": "<p>Array with fieldDefinitions. If used with stylename, fields will be appended to fields in styleName</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "expanded",
+            "defaultValue": "false",
+            "description": "<p>If true section will be expandend when document is opened</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "expandable",
+            "defaultValue": "true",
+            "description": "<p>If true section can be expandend</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Used for storing expand state</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "restoreExpandState",
+            "defaultValue": "true",
+            "description": "<p>Use stored expand state.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "rendered",
+            "description": "<p>&quot;Rendered&quot; object to hide field if conditions do not apply</p>"
+          }
+        ]
+      }
+    },
+    "filename": "src/app/components/fields/subform/subform.component.ts",
     "groupTitle": "Field"
   },
   {
@@ -4220,8 +5486,1929 @@ define({ "api": [
         ]
       }
     },
-    "filename": "src/app/components/fields/subform/subform.component.ts",
+    "filename": "src/apidoc.ts",
     "groupTitle": "Field"
+  },
+  {
+    "type": "get",
+    "url": "/Icons",
+    "title": "Icons",
+    "name": "Icons",
+    "group": "Icons",
+    "version": "5.0.2",
+    "description": "<p>Icon names can be used in &quot;icons&quot; inputs on components. As icons custom icons listed below and Ionicons https://ionicframework.com/docs/ionicons/ are available. Icons are mostly display in the apps primary color (blue). Sometimes the secondary color is used (black).</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "activities",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "appointments",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "businesspeople.svg",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "clipboard_check_edit.svg",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "company",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "contacts",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "correspondence",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "addresses",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "document",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "document_empty.svg",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "folder_open.svg",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "gifunnel",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "gifunnelfilled",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "handshake.svg",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "iraCEViewIconExcel",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "iraCEViewIconsExcel",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "iraCEViewIconOOSpreadSheet",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "iraCEViewIconOOText",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "iraCEViewIconWord",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "knowledge",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "letters_gi",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "mail",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "mail_ba.svg",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "mail_bug.svg",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "mailforward",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "mail_forward",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "mailreply",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "mail_reply",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "mail-solid",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "massemail_gi",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "massletter_gi",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "missing",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "office",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "office_building.svg",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "opportunity",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "otheractivities",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "paperclip.svg",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "phonecall",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "phonecall-solid",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "piece.svg",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "postalAddress",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "postalAddress-solid",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "projects",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "quickentry",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "quickNote",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "radius",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "reminder",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "routing",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "schedule",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "service",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "spreadsheed_sum.svg",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "tasks",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "telephone2",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "user_headset.svg",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "users3.svg",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "ViewIconTaskActive",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "ViewIconTaskComplete",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "ViewIconTaskOpen",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "ViewIconTaskOverdue",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn001",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn002",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn003",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn004",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn005",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn006",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn007",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn008",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn009",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn010",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn011",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn012",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn013",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn014",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn015",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn016",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn017",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn018",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn019",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn020",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn021",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn022",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn023",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn024",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn025",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn026",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn027",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn028",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn029",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn030",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn031",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn032",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn033",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn034",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn035",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn036",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn037",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn038",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn039",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn040",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn041",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn042",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn043",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn044",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn045",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn046",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn047",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn048",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn049",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn050",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn051",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn052",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn053",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn054",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn055",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn056",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn057",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn058",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn059",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn060",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn061",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn062",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn063",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn064",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn065",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn066",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn067",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn068",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn069",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn070",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn071",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn072",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn073",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn074",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn075",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn076",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn077",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn078",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn079",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn080",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn081",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn082",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn083",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn084",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn085",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn086",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn087",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn088",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn089",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn090",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn091",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn092",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn093",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn094",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn095",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn096",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn097",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn098",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn099",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn100",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn101",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn102",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn103",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn104",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn105",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn106",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn107",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn108",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn109",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn110",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn111",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn112",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn113",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn114",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn115",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn116",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn117",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn118",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn119",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn120",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn121",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn122",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn123",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn124",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn125",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn126",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn127",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn128",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn129",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn130",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn131",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn132",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn133",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn134",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn135",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn136",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn137",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn138",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn139",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn140",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn141",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn142",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn143",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn144",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn145",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn146",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn147",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn148",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn149",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn150",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn151",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn152",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn153",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn154",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn155",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn156",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn157",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn158",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn159",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn160",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn161",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn162",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn163",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn164",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn165",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn166",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn167",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn168",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn169",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn170",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn171",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn172",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn173",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn174",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn175",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn176",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn177",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn178",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn179",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn180",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn181",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn182",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn183",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn184",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn185",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn186",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn187",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn188",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn189",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn190",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn191",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn192",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn193",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn194",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn195",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn196",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn197",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn198",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn199",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn200",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn201",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn202",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn203",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn204",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn205",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn206",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn207",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn208",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn209",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn210",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn211",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vwicn212",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "filename": "src/theme/theme-doc.ts",
+    "groupTitle": "Icons"
   },
   {
     "type": "get",
@@ -6001,7 +9188,7 @@ define({ "api": [
         ]
       }
     },
-    "filename": "src/theme/theme-doc.ts",
+    "filename": "src/apidoc.ts",
     "groupTitle": "Icons"
   },
   {
@@ -6703,7 +9890,108 @@ define({ "api": [
         ]
       }
     },
-    "filename": "src/app/components/widgets/task-widget/task-widget.component.ts",
+    "filename": "src/apidoc.ts",
+    "groupTitle": "Widget",
+    "description": "<p>A wiget is part of a widget card. Some params can be changed by the user through the card configuration.</p>"
+  },
+  {
+    "type": "get",
+    "url": "/WebWidget",
+    "title": "WebWidget",
+    "name": "WebWidget",
+    "group": "Widget",
+    "version": "5.0.2",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "inputURL",
+            "description": "<p>Contains the url manually entered by the user</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "boolean",
+            "optional": false,
+            "field": "urlInputAllowed",
+            "description": "<p>Determines if the option to manually enter urls is allowed to be turned on. Default is false.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "boolean",
+            "optional": false,
+            "field": "urlInputEnabled",
+            "description": "<p>Determines if the manual input of urls for the user is enabled and should be used or not. Default is false.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "any[]",
+            "optional": false,
+            "field": "urlList",
+            "description": "<p>Contains a list of url objects. If an empty list or no list is provided urlInput is enabled by default.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "height",
+            "description": "<p>Sets the height of the iframe. Default is 200.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "boolean",
+            "optional": false,
+            "field": "resizable",
+            "description": "<p>Determines if the iframe should be resizable. Default is true.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "minHeight",
+            "description": "<p>Is the minimum height of the iframe if resizable. Default is 100.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "maxHeight",
+            "description": "<p>Is the maximum height of the iframe if resizable. Default is 500.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "boolean",
+            "optional": false,
+            "field": "allowScripts",
+            "description": "<p>If it is provided this value is used for enableScripts and the user can't change it</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "boolean",
+            "optional": false,
+            "field": "enableScripts",
+            "description": "<p>Determines, if scripts are allowed or not. If allowScripts is not provided the user can change this value with a toggle in the configuration. Default is false.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>Unique-Id for component in widget card</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Recently used iframe example:",
+          "content": "{\n     \"_id\": \"webCard\",\n     \"_title\": CRMContext.getLC(\"LC00000\",\"Webcard\"),\n     \"_default\": true,\n     \"_multiple\": true,\n     \"IframeWidget\": {\n          \"_id\": \"comp1\",\n          \"urlList\": [\n\t                      {\"label\": \"Gedys\",\n\t                    \t \"url\": \"https://www.gedys-intraware.de/\"\n\t                      },\n\t                    \t{\"label\": \"Google\",\n\t                    \t \"url\": \"https://www.google.de/\"\n\t                    \t}\n                     ],\n           \"height\": 200,\n           \"resizable\": true,\n           \"minHeight\": 100,\n           \"maxHeight\": 500,\n           \"urlInputAllowed\": true\n           \"allowScripts\": true, \n           \"enableScripts\": true\n      }\n},",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/app/components/widgets/iframe-widget/iframe-widget.component.ts",
     "groupTitle": "Widget",
     "description": "<p>A wiget is part of a widget card. Some params can be changed by the user through the card configuration.</p>"
   },
