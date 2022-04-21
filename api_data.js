@@ -1523,7 +1523,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Example with refresh on change to set source field for EditSelect component:",
-          "content": "   {\n\t\t\t\t\"component\": \"EditList\",\n\t\t\t\t\"inputs\": {\n\t\t\t\t\t\"fieldName\": (\"fdcuproducts_\" + alias[i]),\n\t\t\t\t\t\"label\": \"Produtcs\",\n\t\t\t\t\t\"fixedLabel\": false,\n\t\t\t\t\t\"keyword\": (\"CUProducts_\" + alias[i]),\n\t\t\t\t\t\"allowValuesNotInList\": false,\n\t\t\t\t\t\"refreshOnChange\": true,\n\t\t\t\t\t\"multiValue\": true,\n\t\t\t\t\t\"rendered\": {\n\t\t\t\t\t\t\"field\": (\"fdcubrandavailable_\" + alias[i]),\n\t\t\t\t\t\t\"value\": \"1\",\n\t\t\t\t\t\t\"operator\": \"equals\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t},",
+          "content": "{\n     \"component\": \"EditList\",\n     \"inputs\": {\n       \"fieldName\": (\"fdcuproducts_\" + alias[i]),\n       \"label\": \"Produtcs\",\n       \"fixedLabel\": false,\n       \"keyword\": (\"CUProducts_\" + alias[i]),\n       \"allowValuesNotInList\": false,\n       \"refreshOnChange\": true,\n       \"multiValue\": true,\n       \"rendered\": {\n         \"field\": (\"fdcubrandavailable_\" + alias[i]),\n         \"value\": \"1\",\n         \"operator\": \"equals\"\n       }\n     }\n   },",
           "type": "json"
         }
       ]
@@ -5136,10 +5136,41 @@ define({ "api": [
     "url": "/Relations",
     "title": "Relations",
     "name": "Relations",
+    "description": "<p>Takes the name that should be used to get the relations that should be displayed as a parameter. if no relation name is supplied, it works in all documents through giRelations properties.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "relationName",
+            "description": "<p>Contains the name of the relation</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "rendered",
+            "description": "<p>&quot;Rendered&quot; object to hide field if conditions do not apply</p>"
+          }
+        ]
+      }
+    },
+    "group": "Field",
+    "version": "5.1.1",
+    "filename": "src/app/components/fields/relations/relations.component.ts",
+    "groupTitle": "Field"
+  },
+  {
+    "type": "get",
+    "url": "/Relations",
+    "title": "Relations",
+    "name": "Relations",
     "description": "<p>No parameters required. Works in all documents through giRelations properties</p>",
     "group": "Field",
     "version": "5.0.2",
-    "filename": "src/app/components/fields/relations/relations.component.ts",
+    "filename": "src/apidoc.ts",
     "groupTitle": "Field",
     "parameter": {
       "fields": {
