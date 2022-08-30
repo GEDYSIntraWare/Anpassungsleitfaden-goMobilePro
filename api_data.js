@@ -636,6 +636,126 @@ define({ "api": [
     "url": "/EditAttachment",
     "title": "EditAttachment",
     "name": "EditAttachment",
+    "version": "5.1.2",
+    "group": "EditField",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "initKey",
+            "description": "<p>key to init data (for example: used for share)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "quality",
+            "defaultValue": "1",
+            "description": "<p>Values lower 1 compress images with the types image/jpeg or image/webp. Suggested Value 0.6.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "color",
+            "description": "<p>Name of color</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "hideAttachment",
+            "defaultValue": "false",
+            "description": "<p>Hides the file Input for attachments if true. Default is false.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "showSignature",
+            "defaultValue": "false",
+            "description": "<p>Makes a canvas visible that can be used to write a signature and save it as an attachment image. Default is false.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "labelSignature",
+            "description": "<p>Label for the signature button</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "signatureDescription",
+            "description": "<p>Description for signature modal</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "signatureFilename",
+            "description": "<p>Filename for the signature/sketch file</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "label",
+            "description": "<p>Fieldname of label or parameter as fallback</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "fieldName",
+            "description": "<p>Name of field to edit</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "required",
+            "defaultValue": "false",
+            "description": "<p>Use clientside validation if field is empty</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "refreshOnChange",
+            "defaultValue": "false",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "fixedLabel",
+            "defaultValue": "true",
+            "description": "<p>Show label fixed instead of floating</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "rendered",
+            "description": "<p>&quot;Rendered&quot; object to hide field if conditions do not apply</p>"
+          }
+        ]
+      }
+    },
+    "filename": "src/app/components/edit-fields/edit-attachment/edit-attachment.component.ts",
+    "groupTitle": "EditField"
+  },
+  {
+    "type": "get",
+    "url": "/EditAttachment",
+    "title": "EditAttachment",
+    "name": "EditAttachment",
     "version": "5.0.2",
     "group": "EditField",
     "parameter": {
@@ -711,7 +831,7 @@ define({ "api": [
         ]
       }
     },
-    "filename": "src/app/components/edit-fields/edit-attachment/edit-attachment.component.ts",
+    "filename": "src/apidoc.ts",
     "groupTitle": "EditField"
   },
   {
@@ -9518,6 +9638,30 @@ define({ "api": [
     },
     "filename": "src/app/components/list/apidoc-list.ts",
     "groupTitle": "ItemStyle"
+  },
+  {
+    "type": "get",
+    "url": "/CachedDocumentsWidget",
+    "title": "CachedDocumentsWidget",
+    "name": "CachedDocumentsWidget",
+    "group": "Widget",
+    "version": "5.1.2",
+    "description": "<p>Shows unsaved documents, that have been cached while offline. Does not have to be added manually.</p>",
+    "filename": "src/app/components/widgets/cached-documents-widget/cached-documents-widget.component.ts",
+    "groupTitle": "Widget",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>Unique-Id for component in widget card</p>"
+          }
+        ]
+      }
+    }
   },
   {
     "type": "get",
