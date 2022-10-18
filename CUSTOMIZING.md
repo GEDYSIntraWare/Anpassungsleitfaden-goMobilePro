@@ -200,6 +200,18 @@ Es gibt folgende Typen die mit `type` für Bedingungen verwendet werden können:
         "operator": "notequals",
         "value": "+49",
         "field": "phone"
+      },
+      {
+      	"type": "data",
+        "operator": "contains",
+        "value": "+31",
+        "field": "phone
+      },
+      {
+      "type": "data",
+        "operator": "notcontains",
+        "value": "0180",
+        "field": "phone"
       }
     ],
     "andConditions": [
