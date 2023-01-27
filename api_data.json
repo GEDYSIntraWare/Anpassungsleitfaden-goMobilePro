@@ -1449,7 +1449,7 @@
             "optional": false,
             "field": "addEntryLabel",
             "defaultValue": "Add entry",
-            "description": ""
+            "description": "<p>required if multiValue is true!</p>"
           },
           {
             "group": "Parameter",
@@ -1781,7 +1781,7 @@
             "optional": false,
             "field": "addEntryLabel",
             "defaultValue": "Add entry",
-            "description": ""
+            "description": "<p>required if multiValue is true!</p>"
           },
           {
             "group": "Parameter",
@@ -1927,7 +1927,7 @@
             "optional": false,
             "field": "addEntryLabel",
             "defaultValue": "Add entry",
-            "description": ""
+            "description": "<p>required if multiValue is true!</p>"
           },
           {
             "group": "Parameter",
@@ -2065,7 +2065,7 @@
             "optional": false,
             "field": "addEntryLabel",
             "defaultValue": "Add entry",
-            "description": ""
+            "description": "<p>required if multiValue is true!</p>"
           },
           {
             "group": "Parameter",
@@ -2424,7 +2424,7 @@
             "optional": false,
             "field": "addEntryLabel",
             "defaultValue": "Add entry",
-            "description": ""
+            "description": "<p>required if multiValue is true!</p>"
           },
           {
             "group": "Parameter",
@@ -2553,7 +2553,7 @@
             "optional": false,
             "field": "addEntryLabel",
             "defaultValue": "Add entry",
-            "description": ""
+            "description": "<p>required if multiValue is true!</p>"
           },
           {
             "group": "Parameter",
@@ -2708,7 +2708,152 @@
         },
         {
           "title": "Example with keyword:",
-          "content": "\n    {\n\t\t\t\"component\": \"EditSelect\",\n\t\t\t\"inputs\": {\n\t\t\t\t\"fieldName\": \"fdcucontactfunction\",\n\t\t\t\t\"label\": \"Function\",\n\t\t\t\t\"mode\": \"select\",\n\t\t\t\t\"allowValuesNotInList\": false,\n\t\t\t\t\"itemSourceType\": \"keyword\",\n\t\t\t\t\"itemSourceName\": \"CUContactFunction\",\n\t\t\t\t\"addEmptyLine\": true,\n\t\t\t\t\"fixedLabel\": false\n\t\t\t}\n\t\t},",
+          "content": "\n{\n  \"component\": \"EditSelect\",\n  \"inputs\": {\n    \"fieldName\": \"fdcucontactfunction\",\n    \"label\": \"Function\",\n    \"mode\": \"select\",\n    \"allowValuesNotInList\": false,\n    \"itemSourceType\": \"keyword\",\n    \"itemSourceName\": \"CUContactFunction\",\n    \"addEmptyLine\": true,\n    \"fixedLabel\": false\n  }\n},",
+          "type": "json"
+        },
+        {
+          "title": "Example with select values computed from values in EditList component that refreshed the page:",
+          "content": "{\n  \"component\": \"EditSelect\",\n  \"inputs\": {\n    \"fieldName\": (\"fdcuarticle\" + p + \"_\" + alias[i]),\n    \"label\": (\"Article \" + p),\n    \"mode\": \"select\",\n    \"itemSourceType\": \"field\",\n    \"itemSourceName\": (\"fdcuproducts_\" + alias[i]),\n    \"addEmptyLine\": true,\n    \"rendered\": {\n      \"andConditions\": [\n        {\n          \"field\": (\"fdcuorderarticle_\" + alias[i]),\n          \"value\": \"1\",\n          \"operator\": \"equals\"\n        },\n        {\n          \"field\": (\"fdcubrandavailable_\" + alias[i]),\n          \"value\": \"1\",\n          \"operator\": \"equals\"\n        },\n        {\n          \"field\": (\"fdcuarticle\" + (p-1) + \"_\" + alias[i]),\n          \"operator\": \"notempty\"\n        }\n        ]\n    }\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/apidoc.ts",
+    "groupTitle": "EditField"
+  },
+  {
+    "type": "get",
+    "url": "/EditSelect",
+    "title": "EditSelect",
+    "name": "EditSelect",
+    "version": "4.2.0",
+    "group": "EditField",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "mode",
+            "defaultValue": "auto",
+            "description": "<p>Modes are 'auto', 'checkbox', 'toggle', 'select' or 'multiselect'</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "addEmptyLine",
+            "defaultValue": "false",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "itemSourceType",
+            "description": "<p>Types are 'user', 'userDBDependent', 'dbConfig', 'keyword', 'field', 'data'</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "itemSourceName",
+            "description": "<p>Key for selection values in config, keywords etc.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "itemSourceDb",
+            "description": "<p>Name of database for item source types.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "allowValuesNotInList",
+            "description": "<p>If undefined and itemSourceType is a keyword the keyword setting will be used, otherwise is default false</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "items",
+            "description": "<p>List of selection items, alternative to itemSource</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "aliasSeperator",
+            "defaultValue": "|",
+            "description": "<p>Seperator for alias and label in field</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "interface",
+            "defaultValue": "alert",
+            "description": "<p>Interface for mode &quot;select&quot;. Valid are 'popover', 'alert', 'action-sheet'</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "label",
+            "description": "<p>Fieldname of label or parameter as fallback</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "fieldName",
+            "description": "<p>Name of field to edit</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "required",
+            "defaultValue": "false",
+            "description": "<p>Use clientside validation if field is empty</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "refreshOnChange",
+            "defaultValue": "false",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "fixedLabel",
+            "defaultValue": "true",
+            "description": "<p>Show label fixed instead of floating</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "rendered",
+            "description": "<p>&quot;Rendered&quot; object to hide field if conditions do not apply</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Item Schema",
+          "content": " {\n\t  \"alias\": \"string\",\n   \"label\": \"string\",\n   \"checked\": \"boolean\"\n\t}",
+          "type": "json"
+        },
+        {
+          "title": "Example with keyword:",
+          "content": "\n{\n  \"component\": \"EditSelect\",\n  \"inputs\": {\n    \"fieldName\": \"fdcucontactfunction\",\n    \"label\": \"Function\",\n    \"mode\": \"select\",\n    \"allowValuesNotInList\": false,\n    \"itemSourceType\": \"keyword\",\n    \"itemSourceName\": \"CUContactFunction\",\n    \"addEmptyLine\": true,\n    \"fixedLabel\": false\n  }\n},",
           "type": "json"
         },
         {
@@ -3221,7 +3366,7 @@
       "examples": [
         {
           "title": "Example:",
-          "content": "{\n\t\"component\": \"EditText\",\n\t\"inputs\": {\n\t\t\"fieldName\": \"fdcucontact\",\n\t\t\"label\": \"Contact Person\",\n\t\t\"fixedLabel\": false, //Label fixed at the start or floating above value\n\t\t\"enableTimestamp\": false, // Show timestamp button\n\t\t\"disabled\": true, //editable true/false\n\t\t\"required\": true, //client side validation if field is empty\n\t\t\"refreshOnChange\": true, //Enable document post to server on value change\n\t\t\"rendered\": { //hide when\n\t\t\t\"field\": \"distributionlist\",\n\t\t\t\"operator\": \"notempty\"\n\t\t}\n\t}\n},",
+          "content": "{\n\t\"component\": \"EditTextMulti\",\n\t\"inputs\": {\n\t\t\"fieldName\": \"fdcucontact\",\n\t\t\"label\": \"Contact Person\",\n\t\t\"fixedLabel\": false, //Label fixed at the start or floating above value\n\t\t\"enableTimestamp\": false, // Show timestamp button\n\t\t\"disabled\": true, //editable true/false\n\t\t\"required\": true, //client side validation if field is empty\n\t\t\"refreshOnChange\": true, //Enable document post to server on value change\n\t\t\"rendered\": { //hide when\n\t\t\t\"field\": \"distributionlist\",\n\t\t\t\"operator\": \"notempty\"\n\t\t}\n\t}\n},",
           "type": "json"
         }
       ]
