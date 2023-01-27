@@ -184,6 +184,14 @@ Es gibt folgende Typen die mit `type` für Bedingungen verwendet werden können:
 * role: Aktuelle CRM-Rolle
 * aclrole: ACL-Rolle
 
+Es gibt folgende Operatoren die mit `operator` für Bedingungen verwendet werden können:
+* equals
+* notequals
+* contains
+* notcontains
+* isempty
+* notempty
+
 ### Komplexeres Beispiel mit verschiedenen Typen
 
 ```json
@@ -225,6 +233,11 @@ Es gibt folgende Typen die mit `type` für Bedingungen verwendet werden können:
         "operator": "equals",
         "value": "test",
         "field": "fdskypename"
+      },
+      {
+        "type": "dbconfig",
+        "operator": "isempty",
+        "field": "fdteamsname"
       }
     ],
     "operator": "and"
