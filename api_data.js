@@ -1449,7 +1449,7 @@ define({ "api": [
             "optional": false,
             "field": "addEntryLabel",
             "defaultValue": "Add entry",
-            "description": "<p>required if multiValue is true!</p>"
+            "description": "<p>Required if multiValue is true!</p>"
           },
           {
             "group": "Parameter",
@@ -1781,7 +1781,7 @@ define({ "api": [
             "optional": false,
             "field": "addEntryLabel",
             "defaultValue": "Add entry",
-            "description": "<p>required if multiValue is true!</p>"
+            "description": "<p>Required if multiValue is true!</p>"
           },
           {
             "group": "Parameter",
@@ -1927,7 +1927,7 @@ define({ "api": [
             "optional": false,
             "field": "addEntryLabel",
             "defaultValue": "Add entry",
-            "description": "<p>required if multiValue is true!</p>"
+            "description": "<p>Required if multiValue is true!</p>"
           },
           {
             "group": "Parameter",
@@ -2065,7 +2065,7 @@ define({ "api": [
             "optional": false,
             "field": "addEntryLabel",
             "defaultValue": "Add entry",
-            "description": "<p>required if multiValue is true!</p>"
+            "description": "<p>Required if multiValue is true!</p>"
           },
           {
             "group": "Parameter",
@@ -2424,7 +2424,7 @@ define({ "api": [
             "optional": false,
             "field": "addEntryLabel",
             "defaultValue": "Add entry",
-            "description": "<p>required if multiValue is true!</p>"
+            "description": "<p>Required if multiValue is true!</p>"
           },
           {
             "group": "Parameter",
@@ -2553,7 +2553,7 @@ define({ "api": [
             "optional": false,
             "field": "addEntryLabel",
             "defaultValue": "Add entry",
-            "description": "<p>required if multiValue is true!</p>"
+            "description": "<p>Required if multiValue is true!</p>"
           },
           {
             "group": "Parameter",
