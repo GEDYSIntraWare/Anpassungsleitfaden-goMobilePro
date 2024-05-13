@@ -1,6 +1,6 @@
 Die App wurde so entworfen, dass sich die Hauptgestaltungselemente innerhalb der App durch Anpassungen einer JavaScript-Bibliothek in der goMobile Datenbank mit dem Domino Designer ändern lassen.
 
-> Dieser Leitfaden versucht wichtige Optionen und Möglichkeiten für Anpassungen zu erklären und aufzulisten. Die JavaScript-Bibliothek 'app_getConfig' ist hierbei eine gute Quelle, um den Aufbau und die damit verbundenen Anpassungsmöglichkeiten zu verstehen.
+> Dieser Leitfaden versucht wichtige Optionen und Möglichkeiten für Anpassungen zu erklären und aufzulisten. Die JavaScript-Bibliothek 'app_getConfig' ist hierbei eine gute Quelle, um den Aufbau und die damit verbundenen Anpassungsmöglichkeiten zu verstehen. Ab GI 8.15 werden die Edit Styles in dieser Bibliothek in eine weitere Javascript-Bibliothek 'app_getConfigEditStyles' ausgelagert.
 
 > Verbesserungen an der Dokumentation können ganz einfach per Github eingefügt werden. Dieses Dokument kann unter [https://github.com/GEDYSIntraWare/Anpassungsleitfaden-goMobilePro/blob/master/CUSTOMIZING.md](https://github.com/GEDYSIntraWare/Anpassungsleitfaden-goMobilePro/blob/master/CUSTOMIZING.md) bearbeitet werden.
 
