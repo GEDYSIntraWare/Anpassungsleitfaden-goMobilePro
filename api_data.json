@@ -3563,6 +3563,14 @@
           },
           {
             "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "rememberSelection",
+            "defaultValue": "true",
+            "description": "<p>Remember the selection between searches in the picklist (only for multiselect mode)</p>"
+          },
+          {
+            "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "label",
